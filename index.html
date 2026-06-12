@@ -3,11 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tos-Tinh Clothing Store | ហាងសំលៀកបំពាក?</title>e>
+<title>Tos-Tinh Clothing Store | ហាងសំលៀកបំពាក់</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
@@ -20,7 +19,6 @@ body {
 a { text-decoration: none; color: inherit; }
 img { display: block; max-width: 100%; }
 
-/* ===== VARIABLES ===== */
 :root {
   --primary: #E8890D;
   --primary-dark: #C47509;
@@ -36,7 +34,6 @@ img { display: block; max-width: 100%; }
   --transition: .3s cubic-bezier(.4,0,.2,1);
 }
 
-/* ===== NAVBAR ===== */
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   background: rgba(255,255,255,.95); backdrop-filter: blur(12px);
@@ -62,16 +59,13 @@ img { display: block; max-width: 100%; }
 .nav-btn.phone { background: var(--primary); }
 .nav-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.18); }
 .nav-btn svg { width: 15px; height: 15px; fill: currentColor; }
-
-/* Mobile nav */
 @media (max-width: 600px) {
   .nav-brand { font-size: 1.05rem; }
   .nav-logo { height: 34px; }
   .nav-btn { padding: 5px 10px; font-size: .72rem; gap: 4px; }
-  .nav-btn span { display: none; } /* hide text on mobile, show icon only */
+  .nav-btn span { display: none; }
 }
 
-/* ===== HERO ===== */
 .hero {
   margin-top: 64px;
   position: relative; min-height: 380px;
@@ -88,12 +82,6 @@ img { display: block; max-width: 100%; }
     radial-gradient(circle at 20% 80%, rgba(255,184,77,.12) 0%, transparent 30%),
     radial-gradient(circle at 80% 20%, rgba(255,184,77,.10) 0%, transparent 25%),
     radial-gradient(circle at 50% 50%, rgba(255,215,100,.06) 0%, transparent 60%);
-  pointer-events: none;
-}
-/* Decorative pattern overlay */
-.hero::after {
-  content: ''; position: absolute; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   pointer-events: none;
 }
 .hero-content { position: relative; z-index: 2; padding: 40px 20px; }
@@ -125,13 +113,11 @@ img { display: block; max-width: 100%; }
   box-shadow: 0 4px 20px rgba(232,137,13,.4);
 }
 .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,137,13,.5); }
-
 @media (max-width: 600px) {
   .hero { min-height: 280px; margin-top: 56px; }
   .hero-content { padding: 24px 16px; }
 }
 
-/* ===== CATEGORY FILTER ===== */
 .filter-bar {
   position: sticky; top: 64px; z-index: 900;
   background: white; padding: 14px 5vw;
@@ -156,7 +142,6 @@ img { display: block; max-width: 100%; }
   .filter-btn { padding: 7px 16px; font-size: .82rem; }
 }
 
-/* ===== PRODUCTS GRID ===== */
 .products-section { max-width: 1300px; margin: 0 auto; padding: 32px 5vw 60px; }
 .section-title {
   text-align: center; font-size: 1.6rem; font-weight: 700;
@@ -172,7 +157,6 @@ img { display: block; max-width: 100%; }
 @media (min-width: 640px) and (max-width: 1023px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 480px) { .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
 
-/* ===== PRODUCT CARD ===== */
 .product-card {
   background: white; border-radius: var(--radius);
   box-shadow: var(--shadow); overflow: hidden;
@@ -194,7 +178,6 @@ img { display: block; max-width: 100%; }
 }
 .product-card:hover .card-img-wrapper img { transform: scale(1.04); }
 
-/* Color dots indicator */
 .color-dots {
   position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
   display: flex; gap: 6px; z-index: 3;
@@ -207,19 +190,10 @@ img { display: block; max-width: 100%; }
 .color-dot.active { background: var(--primary); border-color: var(--primary-dark); transform: scale(1.2); }
 .color-dot:hover { transform: scale(1.15); }
 
-/* Card body */
 .card-body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; }
-.card-code {
-  font-size: .85rem; color: var(--gray); font-weight: 500;
-  margin-bottom: 4px;
-}
-.card-price-row {
-  display: flex; align-items: baseline; justify-content: space-between;
-  margin-bottom: 12px;
-}
-.card-price {
-  font-size: 1.35rem; font-weight: 800; color: var(--primary);
-}
+.card-code { font-size: .85rem; color: var(--gray); font-weight: 500; margin-bottom: 4px; }
+.card-price-row { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
+.card-price { font-size: 1.35rem; font-weight: 800; color: var(--primary); }
 .card-price-usd { font-size: .78rem; color: var(--gray); font-weight: 500; }
 .card-contact {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
@@ -227,20 +201,15 @@ img { display: block; max-width: 100%; }
   background: linear-gradient(135deg, #1877F2, #0d65d9);
   color: white; font-weight: 600; font-size: .88rem;
   border: none; cursor: pointer; transition: var(--transition);
-  font-family: inherit; text-decoration: none;
+  font-family: inherit;
 }
 .card-contact:hover { background: linear-gradient(135deg, #1565c0, #0d47a1); box-shadow: 0 4px 14px rgba(24,119,242,.35); }
-.card-contact svg { width: 16px; height: 16px; fill: currentColor; }
+.card-contact svg { width: 16px; height: 16px; fill: currentColor; vertical-align: middle; }
 
-/* Empty state */
-.empty-state {
-  grid-column: 1 / -1; text-align: center; padding: 60px 20px;
-  color: var(--gray);
-}
+.empty-state { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--gray); }
 .empty-state svg { width: 64px; height: 64px; fill: #ccc; margin-bottom: 16px; }
 .empty-state p { font-size: 1.1rem; }
 
-/* ===== FOOTER ===== */
 .footer {
   background: var(--dark); color: rgba(255,255,255,.78);
   padding: 48px 5vw 28px;
@@ -249,56 +218,23 @@ img { display: block; max-width: 100%; }
   display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 36px; max-width: 1100px; margin: 0 auto 36px;
 }
-.footer-col h3 {
-  color: var(--accent-gold); font-size: 1.1rem; font-weight: 700;
-  margin-bottom: 14px;
-}
+.footer-col h3 { color: var(--accent-gold); font-size: 1.1rem; font-weight: 700; margin-bottom: 14px; }
 .footer-col p, .footer-col a { font-size: .9rem; color: rgba(255,255,255,.65); line-height: 1.8; }
 .footer-link { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; transition: var(--transition); }
 .footer-link:hover { color: var(--accent-gold); }
 .footer-link svg { width: 17px; height: 17px; fill: currentColor; flex-shrink: 0; }
-.footer-bottom {
-  text-align: center; padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,.1);
-  font-size: .82rem; color: rgba(255,255,255,.4);
-}
+.footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); font-size: .82rem; color: rgba(255,255,255,.4); }
 
-/* ===== LOADING SKELETON ===== */
-.skeleton {
-  background: linear-gradient(90deg, #eee 25%, #e0e0e0 50%, #eee 75%);
-  background-size: 200% 100%; animation: shimmer 1.5s infinite;
-  border-radius: var(--radius);
-}
-@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-
-/* ===== LANGUAGE SWITCHER ===== */
-.lang-switcher {
-  display: flex; align-items: center; gap: 4px;
-  background: rgba(0,0,0,.06); border-radius: 50px;
-  padding: 3px; margin-left: 12px;
-}
-.lang-btn {
-  padding: 5px 12px; border-radius: 50px; border: none;
-  background: transparent; color: var(--gray); font-size: .78rem;
-  font-weight: 600; cursor: pointer; transition: var(--transition);
-  font-family: inherit; white-space: nowrap;
-}
+.lang-switcher { display: flex; align-items: center; gap: 4px; background: rgba(0,0,0,.06); border-radius: 50px; padding: 3px; margin-left: 12px; }
+.lang-btn { padding: 5px 12px; border-radius: 50px; border: none; background: transparent; color: var(--gray); font-size: .78rem; font-weight: 600; cursor: pointer; transition: var(--transition); font-family: inherit; white-space: nowrap; }
 .lang-btn:hover { color: var(--primary); }
-.lang-btn.active {
-  background: linear-gradient(135deg, var(--primary), var(--accent-gold));
-  color: white; box-shadow: 0 2px 8px rgba(232,137,13,.25);
-}
-@media (max-width: 600px) {
-  .lang-switcher { gap: 2px; padding: 2px; }
-  .lang-btn { padding: 4px 9px; font-size: .7rem; }
-}
+.lang-btn.active { background: linear-gradient(135deg, var(--primary), var(--accent-gold)); color: white; box-shadow: 0 2px 8px rgba(232,137,13,.25); }
+@media (max-width: 600px) { .lang-switcher { gap: 2px; padding: 2px; } .lang-btn { padding: 4px 9px; font-size: .7rem; } }
 
-/* i18n hidden elements */
+/* i18n: hide all, show only active */
 .lang-text { display: none !important; }
 .lang-text.is-show { display: inline !important; }
-.lang-text.is-show.h1-part { display: inline-block !important; }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #aaa; }
@@ -306,223 +242,167 @@ img { display: block; max-width: 100%; }
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <div class="nav-left">
-            <img src="./images/logo.jpg" alt="Tos-Tinh Logo" class="nav-logo">
+    <img src="./images/logo.jpg" alt="Tos-Tinh Logo" class="nav-logo">
     <span class="nav-brand">Tos<span>-Tinh</span></span>
   </div>
   <div class="nav-right">
     <div class="lang-switcher">
-      <button class="lang-btn active" data-set-lang="km" onclick="setLang('km')">ខ្មែ??/button>
+      <button class="lang-btn active" data-set-lang="km" onclick="setLang('km')">ខ្មែរ</button>
       <button class="lang-btn" data-set-lang="en" onclick="setLang('en')">EN</button>
       <button class="lang-btn" data-set-lang="zh" onclick="setLang('zh')">中文</button>
     </div>
     <a href="https://m.me/Tos-Tinh" target="_blank" class="nav-btn fb">
-      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
       <span>Facebook</span>
     </a>
     <a href="https://t.me/Mean_manet" target="_blank" class="nav-btn tg">
-      <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.504-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.504-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
       <span>Telegram</span>
     </a>
     <a href="tel:+855965447595" class="nav-btn phone">
-      <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
       <span>Call</span>
     </a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <div class="hero-badge">
-      <span class="lang-text lang-km is-show">??សំណាក់ថ្ម??២០២៦</span>
-      <span class="lang-text lang-en">??New Collection 2026</span>
-      <span class="lang-text lang-zh">??2026 新品系列</span>
+      <span class="lang-text lang-km is-show">✨ សំណាក់ថ្មី ២០២៦</span><span class="lang-text lang-en">✨ New Collection 2026</span><span class="lang-text lang-zh">✨ 2026 新品系列</span>
     </div>
     <h1>
-      <span class="lang-text lang-km is-show">Tos<span class="gold">-Tinh</span><br>ហាងសំលៀកបំពាក??/span>
-      <span class="lang-text lang-en">Tos<span class="gold">-Tinh</span><br>Clothing Store</span>
-      <span class="lang-text lang-zh">Tos<span class="gold">-Tinh</span><br>服装??/span>
+      <span class="lang-text lang-km is-show">Tos<span class="gold">-Tinh</span><br>ហាងសំលៀកបំពាក់</span><span class="lang-text lang-en">Tos<span class="gold">-Tinh</span><br>Clothing Store</span><span class="lang-text lang-zh">Tos<span class="gold">-Tinh</span><br>服装店</span>
     </h1>
     <p class="hero-sub">
-      <span class="lang-text lang-km is-show">សម្លៀកបំពាក់គុណភាពខ្ពស់ តម្លៃសមរម្??💫</span>
-      <span class="lang-text lang-en">Quality Fashion, Affordable Price 💫</span>
-      <span class="lang-text lang-zh">优质时尚，价格实??💫</span>
+      <span class="lang-text lang-km is-show">សម្លៀកបំពាក់គុណភាពខ្ពស់ តម្លៃសមរម្យ 💫</span><span class="lang-text lang-en">Quality Fashion, Affordable Price 💫</span><span class="lang-text lang-zh">优质时尚，价格实惠 💫</span>
     </p>
     <p class="hero-km">
-      <span class="lang-text lang-km is-show">ទំនិញថ្មីៗ រចនាស្អា??សមស្រាប់អ្នកទាំងអស់គ្ន??/span>
-      <span class="lang-text lang-en">New arrivals, beautifully designed for everyone</span>
-      <span class="lang-text lang-zh">新品上市，精美设计，适合所有人</span>
+      <span class="lang-text lang-km is-show">ទំនិញថ្មីៗ រចនាស្អាត សមស្រាប់អ្នកទាំងអស់គ្នា</span><span class="lang-text lang-en">New arrivals, beautifully designed for everyone</span><span class="lang-text lang-zh">新品上市，精美设计，适合所有人</span>
     </p>
     <a href="#products" class="hero-cta">
-      <span class="lang-text lang-km is-show">🛍??មើលទំនិញ</span>
-      <span class="lang-text lang-en">🛍??Shop Now</span>
-      <span class="lang-text lang-zh">🛍??立即选购</span>
+      <span class="lang-text lang-km is-show">🛍️ មើលទំនិញ</span><span class="lang-text lang-en">🛍️ Shop Now</span><span class="lang-text lang-zh">🛍️ 立即选购</span>
     </a>
   </div>
 </section>
 
-<!-- FILTER BAR -->
 <div class="filter-bar" id="filterBar">
   <button class="filter-btn active" data-filter="all">
-    <span class="lang-text lang-km is-show">ទាំងអស??/span><span class="lang-text lang-en">All</span><span class="lang-text lang-zh">全部</span>
+    <span class="lang-text lang-km is-show">ទាំងអស់</span><span class="lang-text lang-en">All</span><span class="lang-text lang-zh">全部</span>
   </button>
-  <button class="filter-btn" data-filter="??>
+  <button class="filter-btn" data-filter="包">
     👑 <span class="lang-text lang-km is-show">ថងស្បុក</span><span class="lang-text lang-en">Bags</span><span class="lang-text lang-zh">包包</span>
   </button>
   <button class="filter-btn" data-filter="衣服">
-    👕 <span class="lang-text lang-km is-show">សំលៀកបំពាក??/span><span class="lang-text lang-en">Clothes</span><span class="lang-text lang-zh">衣服</span>
+    👕 <span class="lang-text lang-km is-show">សំលៀកបំពាក់</span><span class="lang-text lang-en">Clothes</span><span class="lang-text lang-zh">衣服</span>
   </button>
   <button class="filter-btn" data-filter="鞋子">
-    👟 <span class="lang-text lang-km is-show">ស្បែកជើ??/span><span class="lang-text lang-en">Shoes</span><span class="lang-text lang-zh">鞋子</span>
+    👟 <span class="lang-text lang-km is-show">ស្បែកជើង</span><span class="lang-text lang-en">Shoes</span><span class="lang-text lang-zh">鞋子</span>
   </button>
 </div>
 
-<!-- PRODUCTS -->
 <section class="products-section" id="products">
   <h2 class="section-title">
-    <span class="lang-text lang-km is-show">ផលិតផល <span>របស់យើ??/span> 🛍??/span>
-    <span class="lang-text lang-en">Our <span>Products</span> 🛍??/span>
-    <span class="lang-text lang-zh">我们??span>产品</span> 🛍??/span>
+    <span class="lang-text lang-km is-show">ផលិតផល <span>របស់យើង</span> 🛍️</span><span class="lang-text lang-en">Our <span>Products</span> 🛍️</span><span class="lang-text lang-zh">我们的<span>产品</span> 🛍️</span>
   </h2>
   <div class="products-grid" id="productsGrid"></div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-col">
       <h3>Tos-Tinh Clothing Store</h3>
       <p>
-        <span class="lang-text lang-km is-show">ហាងសំលៀកបំពាក់តូស៊ី??br>ម៉ូដថ្មី??សម្រាប់គ្រប់គ្នានៅកម្ពុជា 🇰🇭<br>ថងស្បុក ??សំលៀកបំពាក????ស្បែកជើ??/span>
-        <span class="lang-text lang-en">Quality fashion for everyone in Cambodia 🇰🇭<br>Bags ??Clothes ??Shoes</span>
-        <span class="lang-text lang-zh">柬埔寨品质时尚，服务每一位顾??🇰🇭<br>包包 ??衣服 ??鞋子</span>
+        <span class="lang-text lang-km is-show">ហាងសំលៀកបំពាក់តូស៊ីន<br>ម៉ូដថ្មីៗ សម្រាប់គ្រប់គ្នានៅកម្ពុជា 🇰🇭<br>ថងស្បុក • សំលៀកបំពាក់ • ស្បែកជើង</span><span class="lang-text lang-en">Quality fashion for everyone in Cambodia 🇰🇭<br>Bags • Clothes • Shoes</span><span class="lang-text lang-zh">柬埔寨品质时尚，服务每一位顾客 🇰🇭<br>包包 • 衣服 • 鞋子</span>
       </p>
     </div>
     <div class="footer-col">
       <h3>
-        <span class="lang-text lang-km is-show">ទំនាក់ទំន??/ Contact</span>
-        <span class="lang-text lang-en">Contact Us / 联系我们</span>
-        <span class="lang-text lang-zh">联系我们 / ទំនាក់ទំន??/span>
+        <span class="lang-text lang-km is-show">ទំនាក់ទំនង / Contact</span><span class="lang-text lang-en">Contact Us / 联系我们</span><span class="lang-text lang-zh">联系我们 / ទំនាក់ទំនង</span>
       </h3>
       <a href="https://www.facebook.com/Tos-Tinh" target="_blank" class="footer-link">
-        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <svg viewBox="0 0 24 24" style="width:17px;height:17px;fill:currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         Facebook: Tos-Tinh
       </a>
       <a href="https://t.me/Mean_manet" target="_blank" class="footer-link">
-        <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.504-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        <svg viewBox="0 0 24 24" style="width:17px;height:17px;fill:currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.504-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
         Telegram: @Mean_manet
       </a>
       <a href="tel:+855965447595" class="footer-link">
-        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <svg viewBox="0 0 24 24" style="width:17px;height:17px;fill:currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
         +855 96 544 7595
       </a>
     </div>
     <div class="footer-col">
       <h3>
-        <span class="lang-text lang-km is-show">អំពីយើ??/ About</span>
-        <span class="lang-text lang-en">About Us / 关于我们</span>
-        <span class="lang-text lang-zh">关于我们 / អំពីយើ??/span>
+        <span class="lang-text lang-km is-show">អំពីយើង / About</span><span class="lang-text lang-en">About Us / 关于我们</span><span class="lang-text lang-zh">关于我们 / អំពីយើង</span>
       </h3>
       <p>
-        <span class="lang-text lang-km is-show">យើងផ្តល់ជូននូវម៉ូដថ្មីៗក្នុងតម្លៃសមរម្យ។ សូមទស្សនាហាងរបស់យើ??ឬទំនាក់ទំនងតាម Facebook ដើម្បីការបញ្ជាទិញ! 📍 កម្ពុជា</span>
-        <span class="lang-text lang-en">We bring you the latest fashion trends at prices you'll love. Visit our store or contact us on Facebook to order! 📍 Cambodia</span>
-        <span class="lang-text lang-zh">我们为您带来最新时尚潮流，价格实惠！欢迎到店或通过 Facebook 下单订购！??柬埔??/span>
+        <span class="lang-text lang-km is-show">យើងផ្តល់ជូននូវម៉ូដថ្មីៗក្នុងតម្លៃសមរម្យ។ សូមទស្សនាហាងរបស់យើង ឬទំនាក់ទំនងតាម Facebook ដើម្បីការបញ្ជាទិញ! 📍 កម្ពុជា</span><span class="lang-text lang-en">We bring you the latest fashion trends at prices you will love. Visit our store or contact us on Facebook to order! 📍 Cambodia</span><span class="lang-text lang-zh">我们为您带来最新时尚潮流，价格实惠！欢迎到店或通过 Facebook 下单订购！📍 柬埔寨</span>
       </p>
     </div>
   </div>
   <div class="footer-bottom">
-    <span class="lang-text lang-km is-show">© ២០២៦ Tos-Tinh Clothing Store. រក្សាសិទ្ធិគ្រប់យ៉ាង??ធ្វើឡើងដោយ ❤️ នៅកម្ពុជា</span>
-    <span class="lang-text lang-en">© 2026 Tos-Tinh Clothing Store. All rights reserved. Made with ❤️ in Cambodia</span>
-    <span class="lang-text lang-zh">© 2026 Tos-Tinh Clothing Store. 版权所有。❤??柬埔寨制??/span>
+    <span class="lang-text lang-km is-show">© ២០២៦ Tos-Tinh Clothing Store. រក្សាសិទ្ធិគ្រប់យ៉ាង។ ធ្វើឡើងដោយ ❤️ នៅកម្ពុជា</span><span class="lang-text lang-en">© 2026 Tos-Tinh Clothing Store. All rights reserved. Made with ❤️ in Cambodia</span><span class="lang-text lang-zh">© 2026 Tos-Tinh Clothing Store. 版权所有。❤️ 柬埔寨制作</span>
   </div>
 </footer>
 
 <script>
-// ===== PRODUCT DATA =====
-const products = [
-  {"category":"包","code":1,"price":5.5,"images":["image1.jpeg","image2.jpeg","image3.jpeg"]},
-  {"category":"包","code":2,"price":4.5,"images":["image4.jpeg","image31.jpeg"]},
-  {"category":"包","code":3,"price":10,"images":["image11.jpeg","image30.jpeg"]},
-  {"category":"包","code":4,"price":4.5,"images":["image12.jpeg","image29.jpeg","image41.jpeg","image48.jpeg","image51.jpeg"]},
-  {"category":"包","code":5,"price":5,"images":["image13.jpeg","image28.jpeg"]},
-  {"category":"包","code":6,"price":4.5,"images":["image14.jpeg","image27.jpeg","image40.jpeg","image47.jpeg"]},
-  {"category":"包","code":7,"price":6.5,"images":["image15.jpeg","image26.jpeg","image39.jpeg"]},
-  {"category":"包","code":8,"price":5,"images":["image16.jpeg","image25.jpeg","image38.jpeg","image46.jpeg"]},
-  {"category":"包","code":9,"price":8.75,"images":["image17.jpeg","image24.png","image37.png","image45.png"]},
-  {"category":"包","code":10,"price":3.5,"images":["image9.jpeg","image23.jpeg","image36.jpeg","image44.jpeg","image50.jpeg"]},
-  {"category":"包","code":11,"price":10,"images":["image8.jpeg","image22.jpeg","image35.jpeg"]},
-  {"category":"包","code":12,"price":7.5,"images":["image7.jpeg","image21.jpeg","image34.jpeg","image43.jpeg"]},
-  {"category":"包","code":13,"price":12,"images":["image6.jpeg","image18.jpeg"]},
-  {"category":"包","code":14,"price":10,"images":["image5.png","image20.png","image33.png","image42.png","image49.png"]},
-  {"category":"包","code":15,"price":10,"images":["image10.png","image19.png","image32.png"]}
-];
-
+const products = [{"category":"包","code":1,"price":5.5,"images":["image1.jpeg","image2.jpeg","image3.jpeg"]},{"category":"包","code":2,"price":4.5,"images":["image4.jpeg","image31.jpeg"]},{"category":"包","code":3,"price":10,"images":["image11.jpeg","image30.jpeg"]},{"category":"包","code":4,"price":4.5,"images":["image12.jpeg","image29.jpeg","image41.jpeg","image48.jpeg","image51.jpeg"]},{"category":"包","code":5,"price":5,"images":["image13.jpeg","image28.jpeg"]},{"category":"包","code":6,"price":4.5,"images":["image14.jpeg","image27.jpeg","image40.jpeg","image47.jpeg"]},{"category":"包","code":7,"price":6.5,"images":["image15.jpeg","image26.jpeg","image39.jpeg"]},{"category":"包","code":8,"price":5,"images":["image16.jpeg","image25.jpeg","image38.jpeg","image46.jpeg"]},{"category":"包","code":9,"price":8.75,"images":["image17.jpeg","image24.png","image37.png","image45.png"]},{"category":"包","code":10,"price":3.5,"images":["image9.jpeg","image23.jpeg","image36.jpeg","image44.jpeg","image50.jpeg"]},{"category":"包","code":11,"price":10,"images":["image8.jpeg","image22.jpeg","image35.jpeg"]},{"category":"包","code":12,"price":7.5,"images":["image7.jpeg","image21.jpeg","image34.jpeg","image43.jpeg"]},{"category":"包","code":13,"price":12,"images":["image6.jpeg","image18.jpeg"]},{"category":"包","code":14,"price":10,"images":["image5.png","image20.png","image33.png","image42.png","image49.png"]},{"category":"包","code":15,"price":10,"images":["image10.png","image19.png","image32.png"]}];
 const IMG_BASE = './images/';
 let currentFilter = 'all';
 
-// ===== RENDER PRODUCTS =====
 function renderProducts(filter) {
   const grid = document.getElementById('productsGrid');
   const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
 
   if (filtered.length === 0) {
-    grid.innerHTML = `
-      <div class="empty-state">
-        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-        <p>
-          <span class="lang-text lang-km is-show">មិនទាន់មានផលិតផលក្នុងចំណាត់ថ្នាក់នេះទេ</span>
-          <span class="lang-text lang-en">No products in this category yet.</span>
-          <span class="lang-text lang-zh">该分类暂无产品??/span>
-        </p>
-      </div>`;
+    grid.innerHTML = '<div class="empty-state">' +
+      '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>' +
+      '<p>' +
+      '<span class="lang-text lang-km is-show">មិនទាន់មានផលិតផលក្នុងចំណាត់ថ្នាក់នេះទេ</span>' +
+      '<span class="lang-text lang-en">No products in this category yet.</span>' +
+      '<span class="lang-text lang-zh">该分类暂无产品。</span>' +
+      '</p></div>';
     return;
   }
 
   grid.innerHTML = filtered.map((p, idx) => {
     const codeStr = String(p.code).padStart(3, '0');
     const dots = p.images.map((_, i) =>
-      `<span class="color-dot${i === 0 ? ' active' : ''}" data-idx="${i}" onclick="switchImg(this, ${idx})"></span>`
+      '<span class="color-dot' + (i === 0 ? ' active' : '') + '" data-idx="' + i + '" onclick="switchImg(this,' + idx + ')"></span>'
     ).join('');
 
-    return `
-    <div class="product-card" style="animation-delay:${idx * .06}s">
-      <div class="card-img-wrapper">
-        <img src="${IMG_BASE}${p.images[0]}" alt="Product #${codeStr}"
-             loading="lazy" data-images='${JSON.stringify(p.images)}'>
-        ${p.images.length > 1 ? `<div class="color-dots">${dots}</div>` : ''}
-      </div>
-      <div class="card-body">
-        <div class="card-code">#${codeStr}</div>
-        <div class="card-price-row">
-          <span class="card-price">$${p.price.toFixed(2)}</span>
-          <span class="card-price-usd">USD</span>
-        </div>
-        <a href="https://m.me/Tos-Tinh?ref=${encodeURIComponent('Product #' + codeStr + ' - $' + p.price)}"
-           target="_blank" class="card-contact">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.8 1.5 5.3 3.8 6.9L5 21l3.3-1.7c1.1.4 2.3.7 3.7.7 5.52 0 10-4.02 10-9S17.52 2 12 2zm-1 13h-2v-2h2v2zm0-3h-2V7h2v5z"/></svg>
-          <span class="lang-text lang-km is-show">ទំនាក់ទំនងតាម Facebook</span>
-          <span class="lang-text lang-en">Contact on Facebook</span>
-          <span class="lang-text lang-zh">通过 Facebook 联系我们</span>
-        </a>
-      </div>
-    </div>`;
+    return '<div class="product-card" style="animation-delay:' + (idx * 0.05) + 's">' +
+      '<div class="card-img-wrapper">' +
+      '<img src="' + IMG_BASE + p.images[0] + '" alt="Product #' + codeStr + '" data-images='' + JSON.stringify(p.images) + '' loading="lazy">' +
+      (p.images.length > 1 ? '<div class="color-dots">' + dots + '</div>' : '') +
+      '</div>' +
+      '<div class="card-body">' +
+      '<div class="card-code">#' + codeStr + '</div>' +
+      '<div class="card-price-row">' +
+      '<span class="card-price">$' + p.price.toFixed(2) + '</span>' +
+      '<span class="card-price-usd">USD</span>' +
+      '</div>' +
+      '<a href="https://m.me/Tos-Tinh" target="_blank" class="card-contact">' +
+      '<svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>' +
+      '<span class="lang-text lang-km is-show">ទំនាក់ទំនងតាម Facebook</span>' +
+      '<span class="lang-text lang-en">Contact on Facebook</span>' +
+      '<span class="lang-text lang-zh">通过 Facebook 联系我们</span>' +
+      '</a>' +
+      '</div>' +
+      '</div>';
   }).join('');
 }
 
-// ===== SWITCH IMAGE =====
 function switchImg(dotEl, cardIdx) {
   const wrapper = dotEl.closest('.card-img-wrapper');
   const img = wrapper.querySelector('img');
   const allDots = wrapper.querySelectorAll('.color-dot');
-
-  // Update active dot
   allDots.forEach(d => d.classList.remove('active'));
   dotEl.classList.add('active');
-
-  // Switch image with fade effect
   const images = JSON.parse(img.dataset.images);
   const newIdx = parseInt(dotEl.dataset.idx);
   img.style.opacity = '0';
@@ -532,11 +412,8 @@ function switchImg(dotEl, cardIdx) {
   }, 150);
 }
 
-// Add image transition style dynamically
-document.head.insertAdjacentHTML('beforeend',
-  '<style>.card-img-wrapper img{transition:opacity .15s ease}</style>');
+document.head.insertAdjacentHTML('beforeend', '.card-img-wrapper img{transition:opacity .15s ease}');
 
-// ===== FILTER =====
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -546,37 +423,30 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-// ===== NAVBAR SCROLL EFFECT =====
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('navbar');
   if (window.scrollY > 50) nav.classList.add('scrolled');
   else nav.classList.remove('scrolled');
 }, { passive: true });
 
-// ===== LANGUAGE SWITCHER =====
 function setLang(lang) {
-  // Update buttons
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.setLang === lang);
   });
-  // Update all text elements - show selected language, hide others
   document.querySelectorAll('.lang-text').forEach(el => {
     el.classList.remove('is-show');
   });
   document.querySelectorAll('.lang-' + lang).forEach(el => {
     el.classList.add('is-show');
   });
-  // Save preference
   try { localStorage.setItem('tt_lang', lang); } catch(e){}
 }
 
-// Restore saved language or default to Khmer
 (function() {
   const saved = localStorage.getItem('tt_lang') || 'km';
   setLang(saved);
 })();
 
-// ===== INIT =====
 renderProducts('all');
 </script>
 </body>
