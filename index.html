@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tos-Tinh Clothing Store | ហាងសំលៀកបំពាក់</title>
+<title>Tos-Tinh Clothing Store | ហាងសំលៀកបំពាក ?/title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -294,10 +294,9 @@ img { display: block; max-width: 100%; }
 }
 
 /* i18n hidden elements */
-[data-lang] { display: none !important; }
-[data-lang="active"] { display: inline-block !important; }
-[data-lang="active"].block-el { display: block !important; }
-[data-lang="active"].flex-el { display: flex !important; }
+.lang-text { display: none !important; }
+.lang-text.is-show { display: inline !important; }
+.lang-text.is-show.h1-part { display: inline-block !important; }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -315,7 +314,7 @@ img { display: block; max-width: 100%; }
   </div>
   <div class="nav-right">
     <div class="lang-switcher">
-      <button class="lang-btn active" data-set-lang="km" onclick="setLang('km')">ខ្មែរ</button>
+      <button class="lang-btn active" data-set-lang="km" onclick="setLang('km')">ខ្មែ ?/button>
       <button class="lang-btn" data-set-lang="en" onclick="setLang('en')">EN</button>
       <button class="lang-btn" data-set-lang="zh" onclick="setLang('zh')">中文</button>
     </div>
@@ -338,29 +337,29 @@ img { display: block; max-width: 100%; }
 <section class="hero">
   <div class="hero-content">
     <div class="hero-badge">
-      <span data-lang="active" data-km>✨ សំណាក់ថ្មី ២០២៦</span>
-      <span data-lang data-en>✨ New Collection 2026</span>
-      <span data-lang data-zh>✨ 2026 新品系列</span>
+      <span class="lang-text lang-km is-show"> ?សំណាក់ថ្ម ?២០២៦</span>
+      <span class="lang-text lang-en"> ?New Collection 2026</span>
+      <span class="lang-text lang-zh"> ?2026 新品系列</span>
     </div>
     <h1>
-      <span data-lang="active" data-km>Tos<span class="gold">-Tinh</span><br>ហាងសំលៀកបំពាក់</span>
-      <span data-lang data-en>Tos<span class="gold">-Tinh</span><br>Clothing Store</span>
-      <span data-lang data-zh>Tos<span class="gold">-Tinh</span><br>服装店</span>
+      <span class="lang-text lang-km is-show">Tos<span class="gold">-Tinh</span><br>ហាងសំលៀកបំពាក ?/span>
+      <span class="lang-text lang-en">Tos<span class="gold">-Tinh</span><br>Clothing Store</span>
+      <span class="lang-text lang-zh">Tos<span class="gold">-Tinh</span><br>服装 ?/span>
     </h1>
     <p class="hero-sub">
-      <span data-lang="active" data-km>សម្លៀកបំពាក់គុណភាពខ្ពស់ តម្លៃសមរម្យ 💫</span>
-      <span data-lang data-en>Quality Fashion, Affordable Price 💫</span>
-      <span data-lang data-zh>优质时尚，价格实惠 💫</span>
+      <span class="lang-text lang-km is-show">សម្លៀកបំពាក់គុណភាពខ្ពស់ តម្លៃសមរម្ ?💫</span>
+      <span class="lang-text lang-en">Quality Fashion, Affordable Price 💫</span>
+      <span class="lang-text lang-zh">优质时尚，价格实 ?💫</span>
     </p>
     <p class="hero-km">
-      <span data-lang="active" data-km>ទំនិញថ្មីៗ រចនាស្អាត សមស្រាប់អ្នកទាំងអស់គ្នា</span>
-      <span data-lang data-en>New arrivals, beautifully designed for everyone</span>
-      <span data-lang data-zh>新品上市，精美设计，适合所有人</span>
+      <span class="lang-text lang-km is-show">ទំនិញថ្មីៗ រចនាស្អា ?សមស្រាប់អ្នកទាំងអស់គ្ន ?/span>
+      <span class="lang-text lang-en">New arrivals, beautifully designed for everyone</span>
+      <span class="lang-text lang-zh">新品上市，精美设计，适合所有人</span>
     </p>
     <a href="#products" class="hero-cta">
-      <span data-lang="active" data-km>🛍️ មើលទំនិញ</span>
-      <span data-lang data-en>🛍️ Shop Now</span>
-      <span data-lang data-zh>🛍️ 立即选购</span>
+      <span class="lang-text lang-km is-show">🛍 ?មើលទំនិញ</span>
+      <span class="lang-text lang-en">🛍 ?Shop Now</span>
+      <span class="lang-text lang-zh">🛍 ?立即选购</span>
     </a>
   </div>
 </section>
@@ -368,25 +367,25 @@ img { display: block; max-width: 100%; }
 <!-- FILTER BAR -->
 <div class="filter-bar" id="filterBar">
   <button class="filter-btn active" data-filter="all">
-    <span data-lang="active" data-km>ទាំងអស់</span><span data-lang data-en>All</span><span data-lang data-zh>全部</span>
+    <span class="lang-text lang-km is-show">ទាំងអស ?/span><span class="lang-text lang-en">All</span><span class="lang-text lang-zh">全部</span>
   </button>
-  <button class="filter-btn" data-filter="包">
-    👑 <span data-lang="active" data-km>ថងស្បុក</span><span data-lang data-en>Bags</span><span data-lang data-zh>包包</span>
+  <button class="filter-btn" data-filter=" ?>
+    👑 <span class="lang-text lang-km is-show">ថងស្បុក</span><span class="lang-text lang-en">Bags</span><span class="lang-text lang-zh">包包</span>
   </button>
   <button class="filter-btn" data-filter="衣服">
-    👕 <span data-lang="active" data-km>សំលៀកបំពាក់</span><span data-lang data-en>Clothes</span><span data-lang data-zh>衣服</span>
+    👕 <span class="lang-text lang-km is-show">សំលៀកបំពាក ?/span><span class="lang-text lang-en">Clothes</span><span class="lang-text lang-zh">衣服</span>
   </button>
   <button class="filter-btn" data-filter="鞋子">
-    👟 <span data-lang="active" data-km>ស្បែកជើង</span><span data-lang data-en>Shoes</span><span data-lang data-zh>鞋子</span>
+    👟 <span class="lang-text lang-km is-show">ស្បែកជើ ?/span><span class="lang-text lang-en">Shoes</span><span class="lang-text lang-zh">鞋子</span>
   </button>
 </div>
 
 <!-- PRODUCTS -->
 <section class="products-section" id="products">
   <h2 class="section-title">
-    <span data-lang="active" data-km>ផលិតផល <span>របស់យើង</span> 🛍️</span>
-    <span data-lang data-en>Our <span>Products</span> 🛍️</span>
-    <span data-lang data-zh>我们的<span>产品</span> 🛍️</span>
+    <span class="lang-text lang-km is-show">ផលិតផល <span>របស់យើ ?/span> 🛍 ?/span>
+    <span class="lang-text lang-en">Our <span>Products</span> 🛍 ?/span>
+    <span class="lang-text lang-zh">我们 ?span>产品</span> 🛍 ?/span>
   </h2>
   <div class="products-grid" id="productsGrid"></div>
 </section>
@@ -397,16 +396,16 @@ img { display: block; max-width: 100%; }
     <div class="footer-col">
       <h3>Tos-Tinh Clothing Store</h3>
       <p>
-        <span data-lang="active" data-km>ហាងសំលៀកបំពាក់តូស៊ីន<br>ម៉ូដថ្មីៗ សម្រាប់គ្រប់គ្នានៅកម្ពុជា 🇰🇭<br>ថងស្បុក • សំលៀកបំពាក់ • ស្បែកជើង</span>
-        <span data-lang data-en>Quality fashion for everyone in Cambodia 🇰🇭<br>Bags • Clothes • Shoes</span>
-        <span data-lang data-zh>柬埔寨品质时尚，服务每一位顾客 🇰🇭<br>包包 • 衣服 • 鞋子</span>
+        <span class="lang-text lang-km is-show">ហាងសំលៀកបំពាក់តូស៊ី ?br>ម៉ូដថ្មី ?សម្រាប់គ្រប់គ្នានៅកម្ពុជា 🇰🇭<br>ថងស្បុក  ?សំលៀកបំពាក ? ?ស្បែកជើ ?/span>
+        <span class="lang-text lang-en">Quality fashion for everyone in Cambodia 🇰🇭<br>Bags  ?Clothes  ?Shoes</span>
+        <span class="lang-text lang-zh">柬埔寨品质时尚，服务每一位顾 ?🇰🇭<br>包包  ?衣服  ?鞋子</span>
       </p>
     </div>
     <div class="footer-col">
       <h3>
-        <span data-lang="active" data-km>ទំនាក់ទំនង / Contact</span>
-        <span data-lang data-en>Contact Us / 联系我们</span>
-        <span data-lang data-zh>联系我们 / ទំនាក់ទំនង</span>
+        <span class="lang-text lang-km is-show">ទំនាក់ទំន ?/ Contact</span>
+        <span class="lang-text lang-en">Contact Us / 联系我们</span>
+        <span class="lang-text lang-zh">联系我们 / ទំនាក់ទំន ?/span>
       </h3>
       <a href="https://www.facebook.com/Tos-Tinh" target="_blank" class="footer-link">
         <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -423,42 +422,42 @@ img { display: block; max-width: 100%; }
     </div>
     <div class="footer-col">
       <h3>
-        <span data-lang="active" data-km>អំពីយើង / About</span>
-        <span data-lang data-en>About Us / 关于我们</span>
-        <span data-lang data-zh>关于我们 / អំពីយើង</span>
+        <span class="lang-text lang-km is-show">អំពីយើ ?/ About</span>
+        <span class="lang-text lang-en">About Us / 关于我们</span>
+        <span class="lang-text lang-zh">关于我们 / អំពីយើ ?/span>
       </h3>
       <p>
-        <span data-lang="active" data-km>យើងផ្តល់ជូននូវម៉ូដថ្មីៗក្នុងតម្លៃសមរម្យ។ សូមទស្សនាហាងរបស់យើង ឬទំនាក់ទំនងតាម Facebook ដើម្បីការបញ្ជាទិញ! 📍 កម្ពុជា</span>
-        <span data-lang data-en>We bring you the latest fashion trends at prices you'll love. Visit our store or contact us on Facebook to order! 📍 Cambodia</span>
-        <span data-lang data-zh>我们为您带来最新时尚潮流，价格实惠！欢迎到店或通过 Facebook 下单订购！📍 柬埔寨</span>
+        <span class="lang-text lang-km is-show">យើងផ្តល់ជូននូវម៉ូដថ្មីៗក្នុងតម្លៃសមរម្យ។ សូមទស្សនាហាងរបស់យើ ?ឬទំនាក់ទំនងតាម Facebook ដើម្បីការបញ្ជាទិញ! 📍 កម្ពុជា</span>
+        <span class="lang-text lang-en">We bring you the latest fashion trends at prices you'll love. Visit our store or contact us on Facebook to order! 📍 Cambodia</span>
+        <span class="lang-text lang-zh">我们为您带来最新时尚潮流，价格实惠！欢迎到店或通过 Facebook 下单订购！ ?柬埔 ?/span>
       </p>
     </div>
   </div>
   <div class="footer-bottom">
-    <span data-lang="active" data-km>© ២០២៦ Tos-Tinh Clothing Store. រក្សាសិទ្ធិគ្រប់យ៉ាង។ ធ្វើឡើងដោយ ❤️ នៅកម្ពុជា</span>
-    <span data-lang data-en>© 2026 Tos-Tinh Clothing Store. All rights reserved. Made with ❤️ in Cambodia</span>
-    <span data-lang data-zh>© 2026 Tos-Tinh Clothing Store. 版权所有。❤️ 柬埔寨制作</span>
+    <span class="lang-text lang-km is-show">© ២០២៦ Tos-Tinh Clothing Store. រក្សាសិទ្ធិគ្រប់យ៉ាង ?ធ្វើឡើងដោយ ❤️ នៅកម្ពុជា</span>
+    <span class="lang-text lang-en">© 2026 Tos-Tinh Clothing Store. All rights reserved. Made with ❤️ in Cambodia</span>
+    <span class="lang-text lang-zh">© 2026 Tos-Tinh Clothing Store. 版权所有。❤ ?柬埔寨制 ?/span>
   </div>
 </footer>
 
 <script>
 // ===== PRODUCT DATA =====
 const products = [
-  {"category":"包","code":1,"price":5.5,"images":["image1.jpeg","image2.jpeg","image3.jpeg"]},
-  {"category":"包","code":2,"price":4.5,"images":["image4.jpeg","image31.jpeg"]},
-  {"category":"包","code":3,"price":10,"images":["image11.jpeg","image30.jpeg"]},
-  {"category":"包","code":4,"price":4.5,"images":["image12.jpeg","image29.jpeg","image41.jpeg","image48.jpeg","image51.jpeg"]},
-  {"category":"包","code":5,"price":5,"images":["image13.jpeg","image28.jpeg"]},
-  {"category":"包","code":6,"price":4.5,"images":["image14.jpeg","image27.jpeg","image40.jpeg","image47.jpeg"]},
-  {"category":"包","code":7,"price":6.5,"images":["image15.jpeg","image26.jpeg","image39.jpeg"]},
-  {"category":"包","code":8,"price":5,"images":["image16.jpeg","image25.jpeg","image38.jpeg","image46.jpeg"]},
-  {"category":"包","code":9,"price":8.75,"images":["image17.jpeg","image24.png","image37.png","image45.png"]},
-  {"category":"包","code":10,"price":3.5,"images":["image9.jpeg","image23.jpeg","image36.jpeg","image44.jpeg","image50.jpeg"]},
-  {"category":"包","code":11,"price":10,"images":["image8.jpeg","image22.jpeg","image35.jpeg"]},
-  {"category":"包","code":12,"price":7.5,"images":["image7.jpeg","image21.jpeg","image34.jpeg","image43.jpeg"]},
-  {"category":"包","code":13,"price":12,"images":["image6.jpeg","image18.jpeg"]},
-  {"category":"包","code":14,"price":10,"images":["image5.png","image20.png","image33.png","image42.png","image49.png"]},
-  {"category":"包","code":15,"price":10,"images":["image10.png","image19.png","image32.png"]}
+  {"category":" ?,"code":1,"price":5.5,"images":["image1.jpeg","image2.jpeg","image3.jpeg"]},
+  {"category":" ?,"code":2,"price":4.5,"images":["image4.jpeg","image31.jpeg"]},
+  {"category":" ?,"code":3,"price":10,"images":["image11.jpeg","image30.jpeg"]},
+  {"category":" ?,"code":4,"price":4.5,"images":["image12.jpeg","image29.jpeg","image41.jpeg","image48.jpeg","image51.jpeg"]},
+  {"category":" ?,"code":5,"price":5,"images":["image13.jpeg","image28.jpeg"]},
+  {"category":" ?,"code":6,"price":4.5,"images":["image14.jpeg","image27.jpeg","image40.jpeg","image47.jpeg"]},
+  {"category":" ?,"code":7,"price":6.5,"images":["image15.jpeg","image26.jpeg","image39.jpeg"]},
+  {"category":" ?,"code":8,"price":5,"images":["image16.jpeg","image25.jpeg","image38.jpeg","image46.jpeg"]},
+  {"category":" ?,"code":9,"price":8.75,"images":["image17.jpeg","image24.png","image37.png","image45.png"]},
+  {"category":" ?,"code":10,"price":3.5,"images":["image9.jpeg","image23.jpeg","image36.jpeg","image44.jpeg","image50.jpeg"]},
+  {"category":" ?,"code":11,"price":10,"images":["image8.jpeg","image22.jpeg","image35.jpeg"]},
+  {"category":" ?,"code":12,"price":7.5,"images":["image7.jpeg","image21.jpeg","image34.jpeg","image43.jpeg"]},
+  {"category":" ?,"code":13,"price":12,"images":["image6.jpeg","image18.jpeg"]},
+  {"category":" ?,"code":14,"price":10,"images":["image5.png","image20.png","image33.png","image42.png","image49.png"]},
+  {"category":" ?,"code":15,"price":10,"images":["image10.png","image19.png","image32.png"]}
 ];
 
 const IMG_BASE = './images/';
@@ -474,9 +473,9 @@ function renderProducts(filter) {
       <div class="empty-state">
         <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
         <p>
-          <span data-lang="active" data-km>មិនទាន់មានផលិតផលក្នុងចំណាត់ថ្នាក់នេះទេ</span>
-          <span data-lang data-en>No products in this category yet.</span>
-          <span data-lang data-zh>该分类暂无产品。</span>
+          <span class="lang-text lang-km is-show">មិនទាន់មានផលិតផលក្នុងចំណាត់ថ្នាក់នេះទេ</span>
+          <span class="lang-text lang-en">No products in this category yet.</span>
+          <span class="lang-text lang-zh">该分类暂无产品 ?/span>
         </p>
       </div>`;
     return;
@@ -504,9 +503,9 @@ function renderProducts(filter) {
         <a href="https://m.me/Tos-Tinh?ref=${encodeURIComponent('Product #' + codeStr + ' - $' + p.price)}"
            target="_blank" class="card-contact">
           <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.02 2 11c0 2.8 1.5 5.3 3.8 6.9L5 21l3.3-1.7c1.1.4 2.3.7 3.7.7 5.52 0 10-4.02 10-9S17.52 2 12 2zm-1 13h-2v-2h2v2zm0-3h-2V7h2v5z"/></svg>
-          <span data-lang="active" data-km>ទំនាក់ទំនងតាម Facebook</span>
-          <span data-lang data-en>Contact on Facebook</span>
-          <span data-lang data-zh>通过 Facebook 联系我们</span>
+          <span class="lang-text lang-km is-show">ទំនាក់ទំនងតាម Facebook</span>
+          <span class="lang-text lang-en">Contact on Facebook</span>
+          <span class="lang-text lang-zh">通过 Facebook 联系我们</span>
         </a>
       </div>
     </div>`;
@@ -560,10 +559,12 @@ function setLang(lang) {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.setLang === lang);
   });
-  // Update all text elements
-  document.querySelectorAll('[data-lang]').forEach(el => {
-    const isActive = el.dataset[lang] !== undefined;
-    el.classList.toggle('active', isActive);
+  // Update all text elements - show selected language, hide others
+  document.querySelectorAll('.lang-text').forEach(el => {
+    el.classList.remove('is-show');
+  });
+  document.querySelectorAll('.lang-' + lang).forEach(el => {
+    el.classList.add('is-show');
   });
   // Save preference
   try { localStorage.setItem('tt_lang', lang); } catch(e){}
