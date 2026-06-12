@@ -1,453 +1,66 @@
-<!DOCTYPE html>
-<html lang="km">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tos-Tinh Clothing Store | ហាងសំលៀកបំពាក់</title>
+<!DOCTYPE html><html lang="km"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tos-Tinh Clothing Store</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Kantumruy Pro', 'Poppins', sans-serif;
-  background: #f8f6f3;
-  color: #222;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-a { text-decoration: none; color: inherit; }
-img { display: block; max-width: 100%; }
-
-:root {
-  --primary: #E8890D;
-  --primary-dark: #C47509;
-  --primary-light: #FFB84D;
-  --accent-gold: #F5A623;
-  --dark: #1a1a1a;
-  --gray: #666;
-  --light-gray: #eee;
-  --white: #fff;
-  --shadow: 0 2px 16px rgba(0,0,0,.10);
-  --shadow-hover: 0 8px 30px rgba(232,137,13,.18);
-  --radius: 14px;
-  --transition: .3s cubic-bezier(.4,0,.2,1);
-}
-
-.navbar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: rgba(255,255,255,.95); backdrop-filter: blur(12px);
-  box-shadow: 0 1px 8px rgba(0,0,0,.08);
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 5vw; height: 64px;
-  transition: var(--transition);
-}
-.navbar.scrolled { height: 56px; box-shadow: 0 2px 20px rgba(0,0,0,.12); }
-.nav-left { display: flex; align-items: center; gap: 12px; }
-.nav-logo { height: 42px; width: auto; object-fit: contain; }
-.nav-brand { font-size: 1.35rem; font-weight: 700; color: var(--dark); letter-spacing: -.5px; }
-.nav-brand span { color: var(--primary); }
-.nav-right { display: flex; align-items: center; gap: 8px; }
-.nav-btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 7px 14px; border-radius: 50px; font-size: .82rem;
-  font-weight: 600; transition: var(--transition); cursor: pointer;
-  border: none; color: white;
-}
-.nav-btn.fb { background: #1877F2; }
-.nav-btn.tg { background: #26A5E4; }
-.nav-btn.phone { background: var(--primary); }
-.nav-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.18); }
-.nav-btn svg { width: 15px; height: 15px; fill: currentColor; }
-@media (max-width: 600px) {
-  .nav-brand { font-size: 1.05rem; }
-  .nav-logo { height: 34px; }
-  .nav-btn { padding: 5px 10px; font-size: .72rem; gap: 4px; }
-  .nav-btn span { display: none; }
-}
-
-.hero {
-  margin-top: 64px;
-  position: relative; min-height: 380px;
-  display: flex; align-items: center; justify-content: center;
-  text-align: center; overflow: hidden;
-  background:
-    radial-gradient(ellipse at 30% 40%, rgba(245,166,35,.25) 0%, transparent 55%),
-    radial-gradient(ellipse at 70% 60%, rgba(232,137,13,.18) 0%, transparent 50%),
-    linear-gradient(135deg, #1a1a1a 0%, #2d1810 40%, #4a2c0a 70%, #1a1a1a 100%);
-}
-.hero::before {
-  content: ''; position: absolute; inset: 0;
-  background-image:
-    radial-gradient(circle at 20% 80%, rgba(255,184,77,.12) 0%, transparent 30%),
-    radial-gradient(circle at 80% 20%, rgba(255,184,77,.10) 0%, transparent 25%),
-    radial-gradient(circle at 50% 50%, rgba(255,215,100,.06) 0%, transparent 60%);
-  pointer-events: none;
-}
-.hero-content { position: relative; z-index: 2; padding: 40px 20px; }
-.hero-badge {
-  display: inline-block; padding: 6px 18px; border-radius: 50px;
-  background: rgba(232,137,13,.2); border: 1px solid rgba(245,166,35,.4);
-  color: var(--accent-gold); font-size: .85rem; font-weight: 600;
-  margin-bottom: 18px; letter-spacing: 1px;
-}
-.hero h1 {
-  font-size: clamp(2rem, 6vw, 3.8rem); font-weight: 800;
-  color: white; line-height: 1.15; margin-bottom: 12px;
-  text-shadow: 0 2px 20px rgba(0,0,0,.3);
-}
-.hero h1 .gold { color: var(--accent-gold); }
-.hero-sub {
-  font-size: clamp(1rem, 2.5vw, 1.3rem); color: rgba(255,255,255,.85);
-  font-weight: 300; margin-bottom: 8px;
-}
-.hero-km {
-  font-size: clamp(.95rem, 2vw, 1.15rem); color: rgba(255,166,77,.75);
-  font-weight: 400;
-}
-.hero-cta {
-  display: inline-block; margin-top: 24px; padding: 12px 32px;
-  background: linear-gradient(135deg, var(--primary), var(--accent-gold));
-  color: white; font-weight: 700; font-size: 1rem;
-  border-radius: 50px; transition: var(--transition);
-  box-shadow: 0 4px 20px rgba(232,137,13,.4);
-}
-.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,137,13,.5); }
-@media (max-width: 600px) {
-  .hero { min-height: 280px; margin-top: 56px; }
-  .hero-content { padding: 24px 16px; }
-}
-
-.filter-bar {
-  position: sticky; top: 64px; z-index: 900;
-  background: white; padding: 14px 5vw;
-  display: flex; justify-content: center; gap: 10px;
-  box-shadow: 0 1px 6px rgba(0,0,0,.06);
-  overflow-x: auto; -webkit-overflow-scrolling: touch;
-}
-.filter-btn {
-  padding: 9px 22px; border-radius: 50px; border: 2px solid var(--light-gray);
-  background: white; color: var(--gray); font-size: .9rem;
-  font-weight: 600; cursor: pointer; transition: var(--transition);
-  font-family: inherit; white-space: nowrap;
-}
-.filter-btn:hover { border-color: var(--primary-light); color: var(--primary); }
-.filter-btn.active {
-  background: linear-gradient(135deg, var(--primary), var(--accent-gold));
-  color: white; border-color: transparent;
-  box-shadow: 0 3px 12px rgba(232,137,13,.3);
-}
-@media (max-width: 600px) {
-  .filter-bar { top: 56px; padding: 10px 3vw; gap: 6px; }
-  .filter-btn { padding: 7px 16px; font-size: .82rem; }
-}
-
-.products-section { max-width: 1300px; margin: 0 auto; padding: 32px 5vw 60px; }
-.section-title {
-  text-align: center; font-size: 1.6rem; font-weight: 700;
-  color: var(--dark); margin-bottom: 24px;
-}
-.section-title span { color: var(--primary); }
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 22px;
-}
-@media (min-width: 1024px) { .products-grid { grid-template-columns: repeat(4, 1fr); } }
-@media (min-width: 640px) and (max-width: 1023px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 480px) { .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
-
-.product-card {
-  background: white; border-radius: var(--radius);
-  box-shadow: var(--shadow); overflow: hidden;
-  transition: var(--transition);
-  opacity: 0; transform: translateY(24px);
-  animation: cardIn .45s ease forwards;
-  display: flex; flex-direction: column;
-}
-.product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
-@keyframes cardIn { to { opacity: 1; transform: translateY(0); } }
-
-.card-img-wrapper {
-  position: relative; width: 100%; aspect-ratio: 1 / 1;
-  background: #fafafa; overflow: hidden;
-}
-.card-img-wrapper img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform .4s ease;
-}
-.product-card:hover .card-img-wrapper img { transform: scale(1.04); }
-
-.color-dots {
-  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 6px; z-index: 3;
-}
-.color-dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: rgba(255,255,255,.65); border: 2px solid rgba(0,0,0,.15);
-  cursor: pointer; transition: var(--transition);
-}
-.color-dot.active { background: var(--primary); border-color: var(--primary-dark); transform: scale(1.2); }
-.color-dot:hover { transform: scale(1.15); }
-
-.card-body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; }
-.card-code { font-size: .85rem; color: var(--gray); font-weight: 500; margin-bottom: 4px; }
-.card-price-row { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; }
-.card-price { font-size: 1.35rem; font-weight: 800; color: var(--primary); }
-.card-price-usd { font-size: .78rem; color: var(--gray); font-weight: 500; }
-.card-contact {
-  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-  width: 100%; padding: 10px; border-radius: 10px;
-  background: linear-gradient(135deg, #1877F2, #0d65d9);
-  color: white; font-weight: 600; font-size: .88rem;
-  border: none; cursor: pointer; transition: var(--transition);
-  font-family: inherit;
-}
-.card-contact:hover { background: linear-gradient(135deg, #1565c0, #0d47a1); box-shadow: 0 4px 14px rgba(24,119,242,.35); }
-.card-contact svg { width: 16px; height: 16px; fill: currentColor; vertical-align: middle; }
-
-.empty-state { grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--gray); }
-.empty-state svg { width: 64px; height: 64px; fill: #ccc; margin-bottom: 16px; }
-.empty-state p { font-size: 1.1rem; }
-
-.footer {
-  background: var(--dark); color: rgba(255,255,255,.78);
-  padding: 48px 5vw 28px;
-}
-.footer-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 36px; max-width: 1100px; margin: 0 auto 36px;
-}
-.footer-col h3 { color: var(--accent-gold); font-size: 1.1rem; font-weight: 700; margin-bottom: 14px; }
-.footer-col p, .footer-col a { font-size: .9rem; color: rgba(255,255,255,.65); line-height: 1.8; }
-.footer-link { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; transition: var(--transition); }
-.footer-link:hover { color: var(--accent-gold); }
-.footer-link svg { width: 17px; height: 17px; fill: currentColor; flex-shrink: 0; }
-.footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); font-size: .82rem; color: rgba(255,255,255,.4); }
-
-.lang-switcher { display: flex; align-items: center; gap: 4px; background: rgba(0,0,0,.06); border-radius: 50px; padding: 3px; margin-left: 12px; }
-.lang-btn { padding: 5px 12px; border-radius: 50px; border: none; background: transparent; color: var(--gray); font-size: .78rem; font-weight: 600; cursor: pointer; transition: var(--transition); font-family: inherit; white-space: nowrap; }
-.lang-btn:hover { color: var(--primary); }
-.lang-btn.active { background: linear-gradient(135deg, var(--primary), var(--accent-gold)); color: white; box-shadow: 0 2px 8px rgba(232,137,13,.25); }
-@media (max-width: 600px) { .lang-switcher { gap: 2px; padding: 2px; } .lang-btn { padding: 4px 9px; font-size: .7rem; } }
-
-/* i18n: hide all, show only active */
-.lang-text { display: none !important; }
-.lang-text.is-show { display: inline !important; }
-
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #aaa; }
-</style>
-</head>
-<body>
-
-<nav class="navbar" id="navbar">
-  <div class="nav-left">
-    <img src="./images/logo.jpg" alt="Tos-Tinh Logo" class="nav-logo">
-    <span class="nav-brand">Tos<span>-Tinh</span></span>
-  </div>
-  <div class="nav-right">
-    <div class="lang-switcher">
-      <button class="lang-btn active" data-set-lang="km" onclick="setLang('km')">ខ្មែរ</button>
-      <button class="lang-btn" data-set-lang="en" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" data-set-lang="zh" onclick="setLang('zh')">中文</button>
-    </div>
-    <a href="https://m.me/Tos-Tinh" target="_blank" class="nav-btn fb">
-      <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      <span>Facebook</span>
-    </a>
-    <a href="https://t.me/Mean_manet" target="_blank" class="nav-btn tg">
-      <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.504-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-      <span>Telegram</span>
-    </a>
-    <a href="tel:+855965447595" class="nav-btn phone">
-      <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-      <span>Call</span>
-    </a>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="lang-text lang-km is-show">✨ សំណាក់ថ្មី ២០២៦</span><span class="lang-text lang-en">✨ New Collection 2026</span><span class="lang-text lang-zh">✨ 2026 新品系列</span>
-    </div>
-    <h1>
-      <span class="lang-text lang-km is-show">Tos<span class="gold">-Tinh</span><br>ហាងសំលៀកបំពាក់</span><span class="lang-text lang-en">Tos<span class="gold">-Tinh</span><br>Clothing Store</span><span class="lang-text lang-zh">Tos<span class="gold">-Tinh</span><br>服装店</span>
-    </h1>
-    <p class="hero-sub">
-      <span class="lang-text lang-km is-show">សម្លៀកបំពាក់គុណភាពខ្ពស់ តម្លៃសមរម្យ 💫</span><span class="lang-text lang-en">Quality Fashion, Affordable Price 💫</span><span class="lang-text lang-zh">优质时尚，价格实惠 💫</span>
-    </p>
-    <p class="hero-km">
-      <span class="lang-text lang-km is-show">ទំនិញថ្មីៗ រចនាស្អាត សមស្រាប់អ្នកទាំងអស់គ្នា</span><span class="lang-text lang-en">New arrivals, beautifully designed for everyone</span><span class="lang-text lang-zh">新品上市，精美设计，适合所有人</span>
-    </p>
-    <a href="#products" class="hero-cta">
-      <span class="lang-text lang-km is-show">🛍️ មើលទំនិញ</span><span class="lang-text lang-en">🛍️ Shop Now</span><span class="lang-text lang-zh">🛍️ 立即选购</span>
-    </a>
-  </div>
-</section>
-
+<link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"><style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Kantumruy Pro','Poppins',sans-serif;background:#f8f6f3;color:#222;line-height:1.6;overflow-x:hidden}a{text-decoration:none;color:inherit}img{display:block;max-width:100%}:root{--primary:#E8890D;--primary-dark:#C47509;--primary-light:#FFB84D;--accent-gold:#F5A623;--dark:#1a1a1a;--gray:#666;--light-gray:#eee;--white:#fff;--shadow:0 2px 16px rgba(0,0,0,.10);--shadow-hover:0 8px 30px rgba(232,137,13,.18);--radius:14px;--transition:.3s cubic-bezier(.4,0,.2,1)}.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);box-shadow:0 1px 8px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:64px;transition:var(--transition)}.navbar.scrolled{height:56px;box-shadow:0 2px 20px rgba(0,0,0,.12)}.nav-left{display:flex;align-items:center;gap:12px}.nav-logo{height:42px;width:auto;object-fit:contain}.nav-brand{font-size:1.35rem;font-weight:700;color:var(--dark);letter-spacing:-.5px}.nav-brand span{color:var(--primary)}.nav-right{display:flex;align-items:center;gap:8px}.nav-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:50px;font-size:.82rem;font-weight:600;transition:var(--transition);cursor:pointer;border:none;color:white}.nav-btn.fb{background:#1877F2}.nav-btn.tg{background:#26A5E4}.nav-btn.phone{background:var(--primary)}.nav-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.18)}.nav-btn svg{width:15px;height:15px;fill:currentColor}@media(max-width:600px){.nav-brand{font-size:1.05rem}.nav-logo{height:34px}.nav-btn{padding:5px 10px;font-size:.72rem;gap:4px}.nav-btn span{display:none}}.hero{margin-top:64px;position:relative;min-height:380px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 30% 40%,rgba(245,166,35,.25) 0%,transparent 55%),radial-gradient(ellipse at 70% 60%,rgba(232,137,13,.18) 0%,transparent 50%),linear-gradient(135deg,#1a1a1a 0%,#2d1810 40%,#4a2c0a 70%,#1a1a1a 100%)}.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 80%,rgba(255,184,77,.12) 0%,transparent 30%),radial-gradient(circle at 80% 20%,rgba(255,184,77,.10) 0%,transparent 25%),radial-gradient(circle at 50% 50%,rgba(255,215,100,.06) 0%,transparent 60%);pointer-events:none}.hero-content{position:relative;z-index:2;padding:40px 20px}.hero-badge{display:inline-block;padding:6px 18px;border-radius:50px;background:rgba(232,137,13,.2);border:1px solid rgba(245,166,35,.4);color:var(--accent-gold);font-size:.85rem;font-weight:600;margin-bottom:18px;letter-spacing:1px}h1{font-size:clamp(2rem,6vw,3.8rem);font-weight:800;color:white;line-height:1.15;margin-bottom:12px;text-shadow:0 2px 20px rgba(0,0,0,.3)}h1 .gold{color:var(--accent-gold)}.hero-sub{font-size:clamp(1rem,2.5vw,1.3rem);color:rgba(255,255,255,.85);font-weight:300;margin-bottom:8px}.hero-km{font-size:clamp(.95rem,2vw,1.15rem);color:rgba(255,166,77,.75);font-weight:400}.hero-cta{display:inline-block;margin-top:24px;padding:12px 32px;background:linear-gradient(135deg,var(--primary),var(--accent-gold));color:white;font-weight:700;font-size:1rem;border-radius:50px;transition:var(--transition);box-shadow:0 4px 20px rgba(232,137,13,.4)}.hero-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(232,137,13,.5)}@media(max-width:600px){.hero{min-height:280px;margin-top:56px}.hero-content{padding:24px 16px}}.filter-bar{position:sticky;top:64px;z-index:900;background:white;padding:14px 5vw;display:flex;justify-content:center;gap:10px;box-shadow:0 1px 6px rgba(0,0,0,.06);overflow-x:auto;-webkit-overflow-scrolling:touch}.filter-btn{padding:9px 22px;border-radius:50px;border:2px solid var(--light-gray);background:white;color:var(--gray);font-size:.9rem;font-weight:600;cursor:pointer;transition:var(--transition);font-family:inherit;white-space:nowrap}.filter-btn:hover{border-color:var(--primary-light);color:var(--primary)}.filter-btn.active{background:linear-gradient(135deg,var(--primary),var(--accent-gold));color:white;border-color:transparent;box-shadow:0 3px 12px rgba(232,137,13,.3)}@media(max-width:600px){.filter-bar{top:56px;padding:10px 3vw;gap:6px}.filter-btn{padding:7px 16px;font-size:.82rem}}.products-section{max-width:1300px;margin:0 auto;padding:32px 5vw 60px}.section-title{text-align:center;font-size:1.6rem;font-weight:700;color:var(--dark);margin-bottom:24px}.section-title span{color:var(--primary)}.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}@media(min-width:1024px){.products-grid{grid-template-columns:repeat(4,1fr)}}@media(min-width:640px) and (max-width:1023px){.products-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:480px){.products-grid{grid-template-columns:repeat(2,1fr);gap:12px}}.product-card{background:white;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:var(--transition);opacity:0;transform:translateY(24px);animation:cardIn .45s ease forwards;display:flex;flex-direction:column}.product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}@keyframes cardIn{to{opacity:1;transform:translateY(0)}}.card-img-wrapper{position:relative;width:100%;aspect-ratio:1/1;background:#fafafa;overflow:hidden}.card-img-wrapper img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}.product-card:hover .card-img-wrapper img{transform:scale(1.04)}.color-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:3}.color-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.65);border:2px solid rgba(0,0,0,.15);cursor:pointer;transition:var(--transition)}.color-dot.active{background:var(--primary);border-color:var(--primary-dark);transform:scale(1.2)}.color-dot:hover{transform:scale(1.15)}.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column}.card-code{font-size:.85rem;color:var(--gray);font-weight:500;margin-bottom:4px}.card-price-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}.card-price{font-size:1.35rem;font-weight:800;color:var(--primary)}.card-price-usd{font-size:.78rem;color:var(--gray);font-weight:500}.card-contact{display:inline-flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:10px;border-radius:10px;background:linear-gradient(135deg,#1877F2,#0d65d9);color:white;font-weight:600;font-size:.88rem;border:none;cursor:pointer;transition:var(--transition);font-family:inherit}.card-contact:hover{background:linear-gradient(135deg,#1565c0,#0d47a1);box-shadow:0 4px 14px rgba(24,119,242,.35)}.card-contact svg{width:16px;height:16px;fill:currentColor;vertical-align:middle}.empty-state{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--gray)}.empty-state svg{width:64px;height:64px;fill:#ccc;margin-bottom:16px}.empty-state p{font-size:1.1rem}.footer{background:var(--dark);color:rgba(255,255,255,.78);padding:48px 5vw 28px}.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px;max-width:1100px;margin:0 auto 36px}.footer-col h3{color:var(--accent-gold);font-size:1.1rem;font-weight:700;margin-bottom:14px}.footer-col p,.footer-col a{font-size:.9rem;color:rgba(255,255,255,.65);line-height:1.8}.footer-link{display:flex;align-items:center;gap:8px;margin-bottom:8px;transition:var(--transition)}.footer-link:hover{color:var(--accent-gold)}.footer-link svg{width:17px;height:17px;fill:currentColor;flex-shrink:0}.footer-bottom{text-align:center;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:.82rem;color:rgba(255,255,255,.4)}.lang-switcher{display:flex;align-items:center;gap:4px;background:rgba(0,0,0,.06);border-radius:50px;padding:3px;margin-left:12px}.lang-btn{padding:5px 12px;border-radius:50px;border:none;background:transparent;color:var(--gray);font-size:.78rem;font-weight:600;cursor:pointer;transition:var(--transition);font-family:inherit;white-space:nowrap}.lang-btn:hover{color:var(--primary)}.lang-btn.active{background:linear-gradient(135deg,var(--primary),var(--accent-gold));color:white;box-shadow:0 2px 8px rgba(232,137,13,.25)}@media(max-width:600px){.lang-switcher{gap:2px;padding:2px}.lang-btn{padding:4px 9px;font-size:.7rem}}.lang-text{display:none!important}.lang-text.is-show{display:inline!important}::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px}::-webkit-scrollbar-thumb:hover{background:#aaa}
+</style></head><body>
+<nav class="navbar" id="navbar"><div class="nav-left"><img src="./images/logo.jpg" alt="Logo" class="nav-logo"><span class="nav-brand">Tos<span>-Tinh</span></span></div><div class="nav-right"><div class="lang-switcher"><button class="lang-btn active" data-set-lang="km" onclick="setLang('km')">ខ្មែរ</button><button class="lang-btn" data-set-lang="en" onclick="setLang('en')">EN</button><button class="lang-btn" data-set-lang="zh" onclick="setLang('zh')">中文</button></div><a href="https://m.me/Tos-Tinh" target="_blank" class="nav-btn fb"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span>Facebook</span></a><a href="https://t.me/Mean_manet" target="_blank" class="nav-btn tg"><svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.504-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg><span>Telegram</span></a><a href="tel:+855965447595" target="_blank" class="nav-btn phone"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span>Call</span></a></div></nav>
+<section class="hero"><div class="hero-content">
+<div class="hero-badge"><span class="lang-text lang-km is-show">✨ សំណាក់ ៲ូ៖</span><span class="lang-text lang-en">✨ New Collection 2026</span><span class="lang-text lang-zh">✨ 2026 新品系列</span></div>
+<h1><span class="lang-text lang-km is-show">Tos<span class="gold">-Tinh</span><br>០ាឹឆ៛2ៀកំ៖៉ចៀី</span><span class="lang-text lang-en">Tos<span class="gold">-Tinh</span><br>Clothing Store</span><span class="lang-text lang-zh">Tos<span class="gold">-Tinh</span><br>服装店</span></h1>
+<p class="hero-sub"><span class="lang-text lang-km is-show">សំ៛2ៀកំ៖ែុនភាគ តម៍៛9សមរម្ᤙ ❤️</span><span class="lang-text lang-en">Quality Fashion, Affordable Price ❤️</span><span class="lang-text lang-zh">优质时尚，价格实惠 ❤️</span></p>
+<p class="hero-km"><span class="lang-text lang-km is-show">ទំនិ៉ថ្មី័ាេ រ⁕នាសអាស សមស្រាប់អ្នក៑ំួែី៑ំួែ អស៟់ែឫ៊ីអស៟់ែើែ</span><span class="lang-text lang-en">New arrivals, beautifully designed for everyone</span><span class="lang-text lang-zh">新品上市，精美设计，适合所有人</span></p>
+<a href="#products" class="hero-cta"><span class="lang-text lang-km is-show">🛍️ មើលទំនិ៉</span><span class="lang-text lang-en">🛍️ Shop Now</span><span class="lang-text lang-zh">🛍️ 立即选购</span></a>
+</div></section>
 <div class="filter-bar" id="filterBar">
-  <button class="filter-btn active" data-filter="all">
-    <span class="lang-text lang-km is-show">ទាំងអស់</span><span class="lang-text lang-en">All</span><span class="lang-text lang-zh">全部</span>
-  </button>
-  <button class="filter-btn" data-filter="包">
-    👑 <span class="lang-text lang-km is-show">ថងស្បុក</span><span class="lang-text lang-en">Bags</span><span class="lang-text lang-zh">包包</span>
-  </button>
-  <button class="filter-btn" data-filter="衣服">
-    👕 <span class="lang-text lang-km is-show">សំលៀកបំពាក់</span><span class="lang-text lang-en">Clothes</span><span class="lang-text lang-zh">衣服</span>
-  </button>
-  <button class="filter-btn" data-filter="鞋子">
-    👟 <span class="lang-text lang-km is-show">ស្បែកជើង</span><span class="lang-text lang-en">Shoes</span><span class="lang-text lang-zh">鞋子</span>
-  </button>
+<button class="filter-btn active" data-filter="all"><span class="lang-text lang-km is-show">ទំំួែ អស៟</span><span class="lang-text lang-en">All</span><span class="lang-text lang-zh">全部</span></button>
+<button class="filter-btn" data-filter="包">👑 <span class="lang-text lang-km is-show">័ងស្បុក</span><span class="lang-text lang-en">Bags</span><span class="lang-text lang-zh">包包</span></button>
+<button class="filter-btn" data-filter="衣服">👕 <span class="lang-text lang-km is-show">សំ៛2ៀកំ៖៉ចៀី</span><span class="lang-text lang-en">Clothes</span><span class="lang-text lang-zh">衣服</span></button>
+<button class="filter-btn" data-filter="鞋子">👞 <span class="lang-text lang-km is-show">ស្បែកះើង</span><span class="lang-text lang-en">Shoes</span><span class="lang-text lang-zh">鞋子</span></button>
 </div>
-
 <section class="products-section" id="products">
-  <h2 class="section-title">
-    <span class="lang-text lang-km is-show">ផលិតផល <span>របស់យើង</span> 🛍️</span><span class="lang-text lang-en">Our <span>Products</span> 🛍️</span><span class="lang-text lang-zh">我们的<span>产品</span> 🛍️</span>
-  </h2>
-  <div class="products-grid" id="productsGrid"></div>
+<h2 class="section-title"><span class="lang-text lang-km is-show">ផ៛bិត្តិ៕ <span>របស៟ួែ</span> 🛍️</span><span class="lang-text lang-en">Our <span>Products</span> 🛍️</span><span class="lang-text lang-zh">我们的<span>产品</span> 🛍️</span></h2>
+<div class="products-grid" id="productsGrid"></div>
 </section>
-
-<footer class="footer">
-  <div class="footer-grid">
-    <div class="footer-col">
-      <h3>Tos-Tinh Clothing Store</h3>
-      <p>
-        <span class="lang-text lang-km is-show">ហាងសំលៀកបំពាក់តូស៊ីន<br>ម៉ូដថ្មីៗ សម្រាប់គ្រប់គ្នានៅកម្ពុជា 🇰🇭<br>ថងស្បុក • សំលៀកបំពាក់ • ស្បែកជើង</span><span class="lang-text lang-en">Quality fashion for everyone in Cambodia 🇰🇭<br>Bags • Clothes • Shoes</span><span class="lang-text lang-zh">柬埔寨品质时尚，服务每一位顾客 🇰🇭<br>包包 • 衣服 • 鞋子</span>
-      </p>
-    </div>
-    <div class="footer-col">
-      <h3>
-        <span class="lang-text lang-km is-show">ទំនាក់ទំនង / Contact</span><span class="lang-text lang-en">Contact Us / 联系我们</span><span class="lang-text lang-zh">联系我们 / ទំនាក់ទំនង</span>
-      </h3>
-      <a href="https://www.facebook.com/Tos-Tinh" target="_blank" class="footer-link">
-        <svg viewBox="0 0 24 24" style="width:17px;height:17px;fill:currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        Facebook: Tos-Tinh
-      </a>
-      <a href="https://t.me/Mean_manet" target="_blank" class="footer-link">
-        <svg viewBox="0 0 24 24" style="width:17px;height:17px;fill:currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.504-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-        Telegram: @Mean_manet
-      </a>
-      <a href="tel:+855965447595" class="footer-link">
-        <svg viewBox="0 0 24 24" style="width:17px;height:17px;fill:currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        +855 96 544 7595
-      </a>
-    </div>
-    <div class="footer-col">
-      <h3>
-        <span class="lang-text lang-km is-show">អំពីយើង / About</span><span class="lang-text lang-en">About Us / 关于我们</span><span class="lang-text lang-zh">关于我们 / អំពីយើង</span>
-      </h3>
-      <p>
-        <span class="lang-text lang-km is-show">យើងផ្តល់ជូននូវម៉ូដថ្មីៗក្នុងតម្លៃសមរម្យ។ សូមទស្សនាហាងរបស់យើង ឬទំនាក់ទំនងតាម Facebook ដើម្បីការបញ្ជាទិញ! 📍 កម្ពុជា</span><span class="lang-text lang-en">We bring you the latest fashion trends at prices you will love. Visit our store or contact us on Facebook to order! 📍 Cambodia</span><span class="lang-text lang-zh">我们为您带来最新时尚潮流，价格实惠！欢迎到店或通过 Facebook 下单订购！📍 柬埔寨</span>
-      </p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span class="lang-text lang-km is-show">© ២០២៦ Tos-Tinh Clothing Store. រក្សាសិទ្ធិគ្រប់យ៉ាង។ ធ្វើឡើងដោយ ❤️ នៅកម្ពុជា</span><span class="lang-text lang-en">© 2026 Tos-Tinh Clothing Store. All rights reserved. Made with ❤️ in Cambodia</span><span class="lang-text lang-zh">© 2026 Tos-Tinh Clothing Store. 版权所有。❤️ 柬埔寨制作</span>
-  </div>
-</footer>
-
+<footer class="footer"><div class="footer-grid">
+<div class="footer-col"><h3>Tos-Tinh Clothing Store</h3><p><span class="lang-text lang-km is-show">០ាឹឆ៛2ៀកំ៖៉ចៀី៏ូស៊ីន<br>ម៉ូដ័្មី សម្រាប់អ្នក៑ំួែី៑ំួែ ៅf3អស៟់ែឫ៊ីអស៟់ែើែ 🇸🇰<br>័ងស្បុក • សំ៛2ៀកំ៖៉ចៀី • ស្បែកះើង</span><span class="lang-text lang-en">Quality fashion for everyone in Cambodia 🇸🇰<br>Bags • Clothes • Shoes</span><span class="lang-text lang-zh">柬埔寨品质时尚，服务每一位顾客 🇸🇰<br>包包 • 衣服 • 鞋子</span></p></div>
+<div class="footer-col"><h3><span class="lang-text lang-km is-show">ទំនាក់៑ំទំន / Contact</span><span class="lang-text lang-en">Contact Us / 联系我们</span><span class="lang-text lang-zh">联系我们 / ទំនាក់៑ំទំន</span></h3>
+<a href="https://www.facebook.com/Tos-Tinh" target="_blank" class="footer-link"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook: Tos-Tinh</a>
+<a href="https://t.me/Mean_manet" target="_blank" class="footer-link"><svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.504-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>Telegram: @Mean_manet</a>
+<a href="tel:+855965447595" class="footer-link"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>+855 96 544 7595</a></div>
+<div class="footer-col"><h3><span class="lang-text lang-km is-show">អំពីយើង / About</span><span class="lang-text lang-en">About Us / 关于我们</span><span class="lang-text lang-zh">关于我们 / អំពីយើង</span></h3>
+<p><span class="lang-text lang-km is-show">យើងផ្និះៈ蟇វៈម៉ូដ័្មីថ្មី ៅa3អស៟់ែឫ៊ីអស៟់ែើែ。 សូមទំស្សានាងរបស៟ួែយើង ឬទំនាក់៑ំទំនតាម Facebook ៊េះពីការប៉៉ាទិ៉! 📍 ក្ម៖騭</span><span class="lang-text lang-en">We bring you the latest fashion trends at prices you will love. Visit our store or contact us on Facebook to order! 📍 Cambodia</span><span class="lang-text lang-zh">我们为您带来最新时尚潮流，价格实惠！欢迎到店或通过 Facebook 下单订购！📍 柬埔寨</span></p></div>
+</div>
+<div class="footer-bottom">© 2026 Tos-Tinh Clothing Store. All rights reserved. Made with ❤️ in Cambodia</div></footer>
 <script>
-const products = [{"category":"包","code":1,"price":5.5,"images":["image1.jpeg","image2.jpeg","image3.jpeg"]},{"category":"包","code":2,"price":4.5,"images":["image4.jpeg","image31.jpeg"]},{"category":"包","code":3,"price":10,"images":["image11.jpeg","image30.jpeg"]},{"category":"包","code":4,"price":4.5,"images":["image12.jpeg","image29.jpeg","image41.jpeg","image48.jpeg","image51.jpeg"]},{"category":"包","code":5,"price":5,"images":["image13.jpeg","image28.jpeg"]},{"category":"包","code":6,"price":4.5,"images":["image14.jpeg","image27.jpeg","image40.jpeg","image47.jpeg"]},{"category":"包","code":7,"price":6.5,"images":["image15.jpeg","image26.jpeg","image39.jpeg"]},{"category":"包","code":8,"price":5,"images":["image16.jpeg","image25.jpeg","image38.jpeg","image46.jpeg"]},{"category":"包","code":9,"price":8.75,"images":["image17.jpeg","image24.png","image37.png","image45.png"]},{"category":"包","code":10,"price":3.5,"images":["image9.jpeg","image23.jpeg","image36.jpeg","image44.jpeg","image50.jpeg"]},{"category":"包","code":11,"price":10,"images":["image8.jpeg","image22.jpeg","image35.jpeg"]},{"category":"包","code":12,"price":7.5,"images":["image7.jpeg","image21.jpeg","image34.jpeg","image43.jpeg"]},{"category":"包","code":13,"price":12,"images":["image6.jpeg","image18.jpeg"]},{"category":"包","code":14,"price":10,"images":["image5.png","image20.png","image33.png","image42.png","image49.png"]},{"category":"包","code":15,"price":10,"images":["image10.png","image19.png","image32.png"]}];
-const IMG_BASE = './images/';
-let currentFilter = 'all';
-
-function renderProducts(filter) {
-  const grid = document.getElementById('productsGrid');
-  const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
-
-  if (filtered.length === 0) {
-    grid.innerHTML = '<div class="empty-state">' +
-      '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>' +
-      '<p>' +
-      '<span class="lang-text lang-km is-show">មិនទាន់មានផលិតផលក្នុងចំណាត់ថ្នាក់នេះទេ</span>' +
-      '<span class="lang-text lang-en">No products in this category yet.</span>' +
-      '<span class="lang-text lang-zh">该分类暂无产品。</span>' +
-      '</p></div>';
-    return;
-  }
-
-  grid.innerHTML = filtered.map((p, idx) => {
-    const codeStr = String(p.code).padStart(3, '0');
-    const dots = p.images.map((_, i) =>
-      '<span class="color-dot' + (i === 0 ? ' active' : '') + '" data-idx="' + i + '" onclick="switchImg(this,' + idx + ')"></span>'
-    ).join('');
-
-    return '<div class="product-card" style="animation-delay:' + (idx * 0.05) + 's">' +
-      '<div class="card-img-wrapper">' +
-      '<img src="' + IMG_BASE + p.images[0] + '" alt="Product #' + codeStr + '" data-images='' + JSON.stringify(p.images) + '' loading="lazy">' +
-      (p.images.length > 1 ? '<div class="color-dots">' + dots + '</div>' : '') +
-      '</div>' +
-      '<div class="card-body">' +
-      '<div class="card-code">#' + codeStr + '</div>' +
-      '<div class="card-price-row">' +
-      '<span class="card-price">$' + p.price.toFixed(2) + '</span>' +
-      '<span class="card-price-usd">USD</span>' +
-      '</div>' +
-      '<a href="https://m.me/Tos-Tinh" target="_blank" class="card-contact">' +
-      '<svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>' +
-      '<span class="lang-text lang-km is-show">ទំនាក់ទំនងតាម Facebook</span>' +
-      '<span class="lang-text lang-en">Contact on Facebook</span>' +
-      '<span class="lang-text lang-zh">通过 Facebook 联系我们</span>' +
-      '</a>' +
-      '</div>' +
-      '</div>';
-  }).join('');
+var products=[{"category":"包","code":1,"price":5.5,"images":["image1.jpeg","image2.jpeg","image3.jpeg"]},{"category":"包","code":2,"price":4.5,"images":["image4.jpeg","image31.jpeg"]},{"category":"包","code":3,"price":10,"images":["image11.jpeg","image30.jpeg"]},{"category":"包","code":4,"price":4.5,"images":["image12.jpeg","image29.jpeg","image41.jpeg","image48.jpeg","image51.jpeg"]},{"category":"包","code":5,"price":5,"images":["image13.jpeg","image28.jpeg"]},{"category":"包","code":6,"price":4.5,"images":["image14.jpeg","image27.jpeg","image40.jpeg","image47.jpeg"]},{"category":"包","code":7,"price":6.5,"images":["image15.jpeg","image26.jpeg","image39.jpeg"]},{"category":"包","code":8,"price":5,"images":["image16.jpeg","image25.jpeg","image38.jpeg","image46.jpeg"]},{"category":"包","code":9,"price":8.75,"images":["image17.jpeg","image24.png","image37.png","image45.png"]},{"category":"包","code":10,"price":3.5,"images":["image9.jpeg","image23.jpeg","image36.jpeg","image44.jpeg","image50.jpeg"]},{"category":"包","code":11,"price":10,"images":["image8.jpeg","image22.jpeg","image35.jpeg"]},{"category":"包","code":12,"price":7.5,"images":["image7.jpeg","image21.jpeg","image34.jpeg","image43.jpeg"]},{"category":"包","code":13,"price":12,"images":["image6.jpeg","image18.jpeg"]},{"category":"包","code":14,"price":10,"images":["image5.png","image20.png","image33.png","image42.png","image49.png"]},{"category":"包","code":15,"price":10,"images":["image10.png","image19.png","image32.png"]}];
+var IMG_BASE='./images/';
+function renderProducts(filter){
+ var g=document.getElementById("productsGrid");
+ var f=filter==="all"?products:products.filter(function(p){return p.category===filter});
+ if(!f.length){g.innerHTML='<div class="empty-state"><p>No products yet.</p></div>';return;}
+ var h="";
+ for(var i=0;i<f.length;i++){
+  var p=f[i],c=String(p.code).padStart(3,"0"),dots="";
+  if(p.images.length>1)for(var j=0;j<p.images.length;j++)dots+='<span class="color-dot'+(j===0?" active":"")+'" data-pidx="'+i+'" data-iidx="'+j+'" onclick="switchImg(this)"></span>';
+  h+='<div class="product-card" style="animation-delay:'+(i*0.05)+'s"><div class="card-img-wrapper"><img src="'+IMG_BASE+p.images[0]+'" alt="#" data-pidx="'+i+'" data-iidx="0">'+(p.images.length>1?'<div class="color-dots">'+dots+'</div>':'')+'</div><div class="card-body"><div class="card-code">#'+c+'</div><div class="card-price-row"><span class="card-price">$'+p.price.toFixed(2)+'</span><span class="card-price-usd">USD</span></div><a href="https://m.me/Tos-Tinh" target="_blank" class="card-contact"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg><span>Contact on Facebook</span></a></div></div>';
+ }
+ g.innerHTML=h;
 }
-
-function switchImg(dotEl, cardIdx) {
-  const wrapper = dotEl.closest('.card-img-wrapper');
-  const img = wrapper.querySelector('img');
-  const allDots = wrapper.querySelectorAll('.color-dot');
-  allDots.forEach(d => d.classList.remove('active'));
-  dotEl.classList.add('active');
-  const images = JSON.parse(img.dataset.images);
-  const newIdx = parseInt(dotEl.dataset.idx);
-  img.style.opacity = '0';
-  setTimeout(() => {
-    img.src = IMG_BASE + images[newIdx];
-    img.style.opacity = '1';
-  }, 150);
+function switchImg(el){
+ var w=el.closest(".card-img-wrapper");
+ var img=w.querySelector("img");
+ var pIdx=parseInt(img.dataset.pidx);
+ var newIdx=parseInt(el.dataset.iidx);
+ img.dataset.iidx=newIdx;
+ w.querySelectorAll(".color-dot").forEach(function(d){d.classList.remove("active")});
+ el.classList.add("active");
+ img.style.opacity="0";
+ setTimeout(function(){img.src=IMG_BASE+products[pIdx].images[newIdx];img.style.opacity="1"},150);
 }
-
-document.head.insertAdjacentHTML('beforeend', '.card-img-wrapper img{transition:opacity .15s ease}');
-
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentFilter = btn.dataset.filter;
-    renderProducts(currentFilter);
-  });
-});
-
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('navbar');
-  if (window.scrollY > 50) nav.classList.add('scrolled');
-  else nav.classList.remove('scrolled');
-}, { passive: true });
-
-function setLang(lang) {
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.setLang === lang);
-  });
-  document.querySelectorAll('.lang-text').forEach(el => {
-    el.classList.remove('is-show');
-  });
-  document.querySelectorAll('.lang-' + lang).forEach(el => {
-    el.classList.add('is-show');
-  });
-  try { localStorage.setItem('tt_lang', lang); } catch(e){}
-}
-
-(function() {
-  const saved = localStorage.getItem('tt_lang') || 'km';
-  setLang(saved);
-})();
-
-renderProducts('all');
-</script>
-</body>
-</html>
+document.querySelectorAll(".filter-btn").forEach(function(b){b.addEventListener("click",function(){document.querySelectorAll(".filter-btn").forEach(function(x){x.classList.remove("active")});b.classList.add("active");renderProducts(b.dataset.filter)})});
+window.addEventListener("scroll",function(){var n=document.getElementById("navbar");if(window.scrollY>50)n.classList.add("scrolled");else n.classList.remove("scrolled")},{passive:true});
+function setLang(lang){document.querySelectorAll(".lang-btn").forEach(function(b){b.classList.toggle("active",b.dataset.setLang===lang)});document.querySelectorAll(".lang-text").forEach(function(e){e.classList.remove("is-show")});document.querySelectorAll(".lang-"+lang).forEach(function(e){e.classList.add("is-show")});try{localStorage.setItem("tt_lang",lang);}catch(e){}}
+(function(){setLang(localStorage.getItem("tt_lang")||"km")})();
+renderProducts("all");
+</script></body></html>
