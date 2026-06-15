@@ -604,15 +604,11 @@ function switchImg(dotEl, cardIdx) {
   allDots.forEach(d => d.classList.remove('active'));
   dotEl.classList.add('active');
 
-  // Switch image with fade effect
+  // Switch image immediately
   const images = JSON.parse(img.dataset.images);
   const newIdx = parseInt(dotEl.dataset.idx);
   card.dataset.cur = newIdx;
-  img.style.opacity = '0';
-  setTimeout(() => {
-    img.src = IMG_BASE + images[newIdx];
-    img.style.opacity = '1';
-  }, 150);
+  img.src = IMG_BASE + images[newIdx];
 }
 
 // ===== LEFT/RIGHT CLICK ON IMAGE =====
@@ -637,18 +633,14 @@ function handleImgClick(e, wrapper) {
   if (dots[newIdx]) dots[newIdx].classList.add('active');
 
   card.dataset.cur = newIdx;
-  img.style.opacity = '0';
-  setTimeout(() => {
-    img.src = IMG_BASE + images[newIdx];
-    img.style.opacity = '1';
-  }, 150);
+  img.src = IMG_BASE + images[newIdx];
 }
 
 // Add image transition style dynamically
 const imgTransitionStyle = document.createElement('style');
 imgTransitionStyle.textContent = `
   .card-img-wrapper{position:relative;overflow:hidden}
-  .card-img-wrapper img{transition:opacity .15s ease;cursor:pointer}
+  .card-img-wrapper img{cursor:pointer}
   .card-img-wrapper .img-nav-hint{
     position:absolute;top:50%;transform:translateY(-50%);
     background:rgba(0,0,0,.35);color:#fff;font-size:1.1rem;
