@@ -569,8 +569,8 @@ function renderProducts(filter) {
     </div>`;
 
     return `
-    <div class="product-card${isPre ? ' pre-sale-card' : ''}" style="animation-delay:${idx * .06}s">
-      <div class="card-img-wrapper">
+    <div class="product-card${isPre ? ' pre-sale-card' : ''}" style="animation-delay:${idx * .06}s" data-cur="0">
+      <div class="card-img-wrapper" onClick="handleImgClick(event, this)">
         ${isPre ? placeholder : `<img src="${IMG_BASE}${p.images[0]}" alt="Product #${codeStr}" loading="lazy" data-images='${JSON.stringify(p.images)}'>`}
         ${!isPre && p.images.length > 1 ? `<div class="color-dots">${dots}</div>` : ''}
         ${isPre ? '<div class="pre-sale-badge"><span data-lang="active" data-km>លក់ជាមុន</span><span data-lang data-en>Pre-sale</span><span data-lang data-zh>预售</span></div>' : ''}
@@ -595,6 +595,7 @@ function renderProducts(filter) {
 
 // ===== SWITCH IMAGE =====
 function switchImg(dotEl, cardIdx) {
+  const card = dotEl.closest('.product-card');
   const wrapper = dotEl.closest('.card-img-wrapper');
   const img = wrapper.querySelector('img');
   const allDots = wrapper.querySelectorAll('.color-dot');
@@ -606,6 +607,36 @@ function switchImg(dotEl, cardIdx) {
   // Switch image with fade effect
   const images = JSON.parse(img.dataset.images);
   const newIdx = parseInt(dotEl.dataset.idx);
+  card.dataset.cur = newIdx;
+  img.style.opacity = '0';
+  setTimeout(() => {
+    img.src = IMG_BASE + images[newIdx];
+    img.style.opacity = '1';
+  }, 150);
+}
+
+// ===== LEFT/RIGHT CLICK ON IMAGE =====
+function handleImgClick(e, wrapper) {
+  // Only process if click is on the image itself (not dots or badge)
+  const img = wrapper.querySelector('img');
+  if (!img || !img.dataset.images) return;
+
+  const card = wrapper.closest('.product-card');
+  const images = JSON.parse(img.dataset.images);
+  if (images.length <= 1) return;
+
+  const cur = parseInt(card.dataset.cur || '0');
+  const isLeft = (e.clientX < wrapper.getBoundingClientRect().left + wrapper.offsetWidth / 2);
+  const newIdx = isLeft
+    ? (cur - 1 + images.length) % images.length
+    : (cur + 1) % images.length;
+
+  // Update dots
+  const dots = wrapper.querySelectorAll('.color-dot');
+  dots.forEach(d => d.classList.remove('active'));
+  if (dots[newIdx]) dots[newIdx].classList.add('active');
+
+  card.dataset.cur = newIdx;
   img.style.opacity = '0';
   setTimeout(() => {
     img.src = IMG_BASE + images[newIdx];
@@ -614,8 +645,43 @@ function switchImg(dotEl, cardIdx) {
 }
 
 // Add image transition style dynamically
-document.head.insertAdjacentHTML('beforeend',
-  '<style>.card-img-wrapper img{transition:opacity .15s ease}</style>');
+const imgTransitionStyle = document.createElement('style');
+imgTransitionStyle.textContent = `
+  .card-img-wrapper{position:relative;overflow:hidden}
+  .card-img-wrapper img{transition:opacity .15s ease;cursor:pointer}
+  .card-img-wrapper .img-nav-hint{
+    position:absolute;top:50%;transform:translateY(-50%);
+    background:rgba(0,0,0,.35);color:#fff;font-size:1.1rem;
+    width:28px;height:28px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;transition:opacity .2s;pointer-events:none;user-select:none;
+    line-height:1;
+  }
+  .card-img-wrapper:hover .img-nav-hint{opacity:1}
+  .img-nav-hint.left{left:6px}
+  .img-nav-hint.right{right:6px}
+`;
+document.head.appendChild(imgTransitionStyle);
+
+// Inject arrow hints into all existing image wrappers
+function addArrowHints() {
+  document.querySelectorAll('.card-img-wrapper').forEach(w => {
+    if (w.querySelector('.img-nav-hint')) return;
+    const hintL = document.createElement('span');
+    hintL.className = 'img-nav-hint left'; hintL.textContent = '‹';
+    const hintR = document.createElement('span');
+    hintR.className = 'img-nav-hint right'; hintR.textContent = '›';
+    w.appendChild(hintL); w.appendChild(hintR);
+  });
+}
+addArrowHints();
+
+// Re-inject arrow hints after each render
+const _origRender = renderProducts;
+window.renderProducts = function(f) {
+  _origRender(f);
+  setTimeout(addArrowHints, 50);
+};
 
 // ===== FILTER =====
 document.querySelectorAll('.filter-btn').forEach(btn => {
