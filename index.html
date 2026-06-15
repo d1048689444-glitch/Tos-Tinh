@@ -558,9 +558,7 @@ function renderProducts(filter) {
 
   grid.innerHTML = filtered.map((p, idx) => {
     const codeStr = String(p.code).padStart(3, '0');
-    const dots = p.images.map((_, i) =>
-      `<span class="color-dot${i === 0 ? ' active' : ''}" data-idx="${i}" onclick="switchImg(this, ${idx})"></span>`
-    ).join('');
+    const total = p.images.length;
     const isPre = p.preSale;
     const placeholder = `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#f5f5f5;color:#aaa;font-size:.85rem;text-align:center;padding:1rem;border-radius:8px;">
       <span data-lang="active" data-km>លក់ជាមុន · រង់ចាំជំនួបពេលខ្លី</span>
@@ -572,7 +570,7 @@ function renderProducts(filter) {
     <div class="product-card${isPre ? ' pre-sale-card' : ''}" style="animation-delay:${idx * .06}s" data-cur="0">
       <div class="card-img-wrapper" onClick="handleImgClick(event, this)">
         ${isPre ? placeholder : `<img src="${IMG_BASE}${p.images[0]}" alt="Product #${codeStr}" loading="lazy" data-images='${JSON.stringify(p.images)}'>`}
-        ${!isPre && p.images.length > 1 ? `<div class="color-dots">${dots}</div>` : ''}
+        ${!isPre && total > 1 ? `<div class="img-counter" id="counter-${idx}" onclick="switchByCounter(${idx})">1/${total}</div>` : ''}
         ${isPre ? '<div class="pre-sale-badge"><span data-lang="active" data-km>លក់ជាមុន</span><span data-lang data-en>Pre-sale</span><span data-lang data-zh>预售</span></div>' : ''}
       </div>
       <div class="card-body">
@@ -594,46 +592,43 @@ function renderProducts(filter) {
 }
 
 // ===== SWITCH IMAGE =====
-function switchImg(dotEl, cardIdx) {
-  const card = dotEl.closest('.product-card');
-  const wrapper = dotEl.closest('.card-img-wrapper');
+function switchImgGlobal(newIdx, card) {
+  const wrapper = card.querySelector('.card-img-wrapper');
   const img = wrapper.querySelector('img');
-  const allDots = wrapper.querySelectorAll('.color-dot');
-
-  // Update active dot
-  allDots.forEach(d => d.classList.remove('active'));
-  dotEl.classList.add('active');
-
-  // Switch image immediately
+  if (!img || !img.dataset.images) return;
   const images = JSON.parse(img.dataset.images);
-  const newIdx = parseInt(dotEl.dataset.idx);
-  card.dataset.cur = newIdx;
-  img.src = IMG_BASE + images[newIdx];
+  const total = images.length;
+  const clampedIdx = ((newIdx % total) + total) % total;
+  card.dataset.cur = clampedIdx;
+  img.src = IMG_BASE + images[clampedIdx];
+  // Update counter
+  const counter = wrapper.querySelector('.img-counter');
+  if (counter) counter.textContent = `${clampedIdx + 1}/${total}`;
+}
+
+// Click on counter → advance to next
+function switchByCounter(cardIdx) {
+  const cards = document.querySelectorAll('.product-card');
+  const card = cards[cardIdx];
+  if (!card) return;
+  const wrapper = card.querySelector('.card-img-wrapper');
+  const img = wrapper.querySelector('img');
+  if (!img || !img.dataset.images) return;
+  const images = JSON.parse(img.dataset.images);
+  const cur = parseInt(card.dataset.cur || '0');
+  switchImgGlobal(cur + 1, card);
 }
 
 // ===== LEFT/RIGHT CLICK ON IMAGE =====
 function handleImgClick(e, wrapper) {
-  // Only process if click is on the image itself (not dots or badge)
   const img = wrapper.querySelector('img');
   if (!img || !img.dataset.images) return;
-
   const card = wrapper.closest('.product-card');
   const images = JSON.parse(img.dataset.images);
   if (images.length <= 1) return;
-
   const cur = parseInt(card.dataset.cur || '0');
   const isLeft = (e.clientX < wrapper.getBoundingClientRect().left + wrapper.offsetWidth / 2);
-  const newIdx = isLeft
-    ? (cur - 1 + images.length) % images.length
-    : (cur + 1) % images.length;
-
-  // Update dots
-  const dots = wrapper.querySelectorAll('.color-dot');
-  dots.forEach(d => d.classList.remove('active'));
-  if (dots[newIdx]) dots[newIdx].classList.add('active');
-
-  card.dataset.cur = newIdx;
-  img.src = IMG_BASE + images[newIdx];
+  switchImgGlobal(isLeft ? cur - 1 : cur + 1, card);
 }
 
 // Add image transition style dynamically
@@ -652,6 +647,12 @@ imgTransitionStyle.textContent = `
   .card-img-wrapper:hover .img-nav-hint{opacity:1}
   .img-nav-hint.left{left:6px}
   .img-nav-hint.right{right:6px}
+  .img-counter{
+    position:absolute;bottom:8px;right:8px;
+    background:rgba(0,0,0,.5);color:#fff;
+    font-size:.7rem;padding:2px 7px;border-radius:10px;
+    cursor:pointer;user-select:none;line-height:1.4;
+  }
 `;
 document.head.appendChild(imgTransitionStyle);
 
