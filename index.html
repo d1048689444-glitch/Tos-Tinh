@@ -1497,8 +1497,8 @@ function renderProducts(filter) {
     return `
     <div class="product-card${isPre ? ' pre-sale-card' : ''}" style="animation-delay:${idx * .06}s" data-cur="0">
       <div class="card-img-wrapper" onClick="handleImgClick(event, this)">
-        ${isPre ? placeholder : `<img src="${IMG_BASE}${p.images[0]}" alt="Product #${codeStr}" loading="lazy" data-images='${JSON.stringify(p.images)}'>`}
-        ${!isPre && total > 1 ? `<div class="img-counter" id="counter-${idx}" onclick="switchByCounter(${idx})">1/${total}</div>` : ''}
+        ${isPre && p.images.length === 0 ? placeholder : `<img src="${IMG_BASE}${p.images[0]}" alt="Product #${codeStr}" loading="lazy" data-images='${JSON.stringify(p.images)}'>`}
+        ${total > 1 ? `<div class="img-counter" id="counter-${idx}" onclick="switchByCounter(${idx})">1/${total}</div>` : ''}
         ${isPre ? '<div class="pre-sale-badge"><span data-lang="active" data-km>លក់ជាមុន</span><span data-lang data-en>Pre-sale</span><span data-lang data-zh>预售</span></div>' : ''}
       </div>
       <div class="card-body">
