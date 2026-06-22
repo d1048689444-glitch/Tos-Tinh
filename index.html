@@ -142,6 +142,9 @@ img { display: block; max-width: 100%; }
 .pre-sale-badge{display:inline-block;background:linear-gradient(135deg,#e74c3c,#c0392b);color:#fff;font-size:.7rem;padding:3px 10px;border-radius:20px;position:absolute;top:10px;right:10px;font-weight:600;z-index:2}
 .pre-sale-card .card-img-wrapper{position:relative;min-height:180px}
 .pre-sale-card{opacity:.9}
+.sold-out-badge{display:inline-block;background:linear-gradient(135deg,#7f8c8d,#34495e);color:#fff;font-size:.7rem;padding:3px 10px;border-radius:20px;position:absolute;top:10px;left:10px;font-weight:600;z-index:2}
+.sold-out-card .card-img-wrapper{position:relative}
+.sold-out-card .card-img-wrapper img{opacity:.7;filter:grayscale(30%)};
 
 .filter-btn {
   padding: 9px 22px; border-radius: 50px; border: 2px solid var(--light-gray);
@@ -501,7 +504,8 @@ const products = [
     "images": [
       "image13.jpeg",
       "image14.jpeg"
-    ]
+    ],
+    "soldOut": true
   },
   {
     "category": "包",
@@ -1488,6 +1492,7 @@ function renderProducts(filter) {
     const codeStr = String(p.code).padStart(3, '0');
     const total = p.images.length;
     const isPre = p.preSale;
+    const isSoldOut = p.soldOut;
     const placeholder = `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#f5f5f5;color:#aaa;font-size:.85rem;text-align:center;padding:1rem;border-radius:8px;">
       <span data-lang="active" data-km>លក់ជាមុន · រង់ចាំជំនួបពេលខ្លី</span>
       <span data-lang data-en>Coming Soon · Stay Tuned</span>
@@ -1495,11 +1500,12 @@ function renderProducts(filter) {
     </div>`;
 
     return `
-    <div class="product-card${isPre ? ' pre-sale-card' : ''}" style="animation-delay:${idx * .06}s" data-cur="0">
+    <div class="product-card${isPre ? ' pre-sale-card' : ''}${isSoldOut ? ' sold-out-card' : ''}" style="animation-delay:${idx * .06}s" data-cur="0">
       <div class="card-img-wrapper" onClick="handleImgClick(event, this)">
         ${isPre && p.images.length === 0 ? placeholder : `<img src="${IMG_BASE}${p.images[0]}" alt="Product #${codeStr}" loading="lazy" data-images='${JSON.stringify(p.images)}'>`}
         ${total > 1 ? `<div class="img-counter" id="counter-${idx}" onclick="switchByCounter(${idx})">1/${total}</div>` : ''}
         ${isPre ? '<div class="pre-sale-badge"><span data-lang="active" data-km>លក់ជាមុន</span><span data-lang data-en>Pre-sale</span><span data-lang data-zh>预售</span></div>' : ''}
+        ${isSoldOut ? '<div class="sold-out-badge"><span data-lang="active" data-km>បានលក់អស់ · អាចកក់ទុក</span><span data-lang data-en>Sold Out · Pre-order</span><span data-lang data-zh>已售罄 · 可预订</span></div>' : ''}
       </div>
       <div class="card-body">
         <div class="card-code">#${codeStr}</div>
