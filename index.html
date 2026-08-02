@@ -474,7 +474,11 @@ const products = [
       "bag_3.jpeg"
     ],
     "preSale": false,
-    "soldOut": false
+    "soldOutImages": [
+      0,
+      1,
+      2
+    ]
   },
   {
     "code": 2,
@@ -513,7 +517,9 @@ const products = [
       "bag_12.jpeg"
     ],
     "preSale": false,
-    "soldOut": false
+    "soldOutImages": [
+      3
+    ]
   },
   {
     "code": 5,
@@ -552,7 +558,9 @@ const products = [
       "bag_21.jpeg"
     ],
     "preSale": false,
-    "soldOut": false
+    "soldOutImages": [
+      2
+    ]
   },
   {
     "code": 8,
@@ -566,7 +574,9 @@ const products = [
       "bag_25.jpeg"
     ],
     "preSale": false,
-    "soldOut": false
+    "soldOutImages": [
+      0
+    ]
   },
   {
     "code": 9,
@@ -1789,6 +1799,9 @@ function renderProducts(filter) {
     const total = p.images.length;
     const isPre = p.preSale;
     const isSoldOut = p.soldOut;
+    const soldOutImages = p.soldOutImages || [];
+    const curIdx = 0; // 初始显示第一张
+    const isCurSoldOut = isSoldOut || soldOutImages.includes(curIdx);
     const placeholder = `<div style="display:flex;align-items:center;justify-content:center;height:100%;background:#f5f5f5;color:#aaa;font-size:.85rem;text-align:center;padding:1rem;border-radius:8px;">
       <span data-lang="active" data-km>លក់ជាមុន · រង់ចាំជំនួបពេលខ្លី</span>
       <span data-lang data-en>Coming Soon · Stay Tuned</span>
@@ -1796,12 +1809,12 @@ function renderProducts(filter) {
     </div>`;
 
     return `
-    <div class="product-card${isPre ? ' pre-sale-card' : ''}${isSoldOut ? ' sold-out-card' : ''}" style="animation-delay:${idx * .06}s" data-cur="0">
+    <div class="product-card${isPre ? ' pre-sale-card' : ''}${isCurSoldOut ? ' sold-out-card' : ''}" style="animation-delay:${idx * .06}s" data-cur="0" data-sold-out-images='${JSON.stringify(soldOutImages)}' data-global-sold-out='${isSoldOut}'>
       <div class="card-img-wrapper" onClick="handleImgClick(event, this)">
         ${isPre && p.images.length === 0 ? placeholder : `<img src="${IMG_BASE}${p.images[0]}" alt="Product #${codeStr}" loading="lazy" data-images='${JSON.stringify(p.images)}'>`}
         ${total > 1 ? `<div class="img-counter" id="counter-${idx}" onclick="switchByCounter(${idx})">1/${total}</div>` : ''}
         ${isPre ? '<div class="pre-sale-badge"><span data-lang="active" data-km>លក់ជាមុន</span><span data-lang data-en>Pre-sale</span><span data-lang data-zh>预售</span></div>' : ''}
-        ${isSoldOut ? '<div class="sold-out-badge"><span data-lang="active" data-km>បានលក់អស់ · អាចកក់ទុក</span><span data-lang data-en>Sold Out · Pre-order</span><span data-lang data-zh>已售罄 · 可预订</span></div>' : ''}
+        ${isCurSoldOut ? '<div class="sold-out-badge"><span data-lang="active" data-km>បានលក់អស់ · អាចកក់ទុក</span><span data-lang data-en>Sold Out · Pre-order</span><span data-lang data-zh>已售罄 · 可预订</span></div>' : ''}
       </div>
       <div class="card-body">
         <div class="card-code">#${codeStr}</div>
@@ -1834,6 +1847,26 @@ function switchImgGlobal(newIdx, card) {
   // Update counter
   const counter = wrapper.querySelector('.img-counter');
   if (counter) counter.textContent = `${clampedIdx + 1}/${total}`;
+  // Update sold-out badge based on current image
+  updateSoldOutBadge(card, clampedIdx);
+}
+
+function updateSoldOutBadge(card, curIdx) {
+  const soldOutImages = JSON.parse(card.dataset.soldOutImages || '[]');
+  const isGlobalSoldOut = card.dataset.globalSoldOut === 'true';
+  const isCurSoldOut = isGlobalSoldOut || soldOutImages.includes(curIdx);
+  const badge = card.querySelector('.sold-out-badge');
+  if (isCurSoldOut) {
+    if (!badge) {
+      const wrapper = card.querySelector('.card-img-wrapper');
+      const badgeHtml = '<div class="sold-out-badge"><span data-lang="active" data-km>បានលក់អស់ · អាចកក់ទុក</span><span data-lang data-en>Sold Out · Pre-order</span><span data-lang data-zh>已售罄 · 可预订</span></div>';
+      wrapper.insertAdjacentHTML('beforeend', badgeHtml);
+    }
+    card.classList.add('sold-out-card');
+  } else {
+    if (badge) badge.remove();
+    card.classList.remove('sold-out-card');
+  }
 }
 
 // Click on counter → advance to next
