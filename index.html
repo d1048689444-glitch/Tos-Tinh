@@ -1816,6 +1816,74 @@ const products = [
     ],
     "preSale": false,
     "soldOut": false
+  },
+  {
+    "code": 1001,
+    "name": "",
+    "category": "预售",
+    "price": 0,
+    "priceNote": "ឆាតសួរតម្លៃបានបងៗ",
+    "images": [
+      "presale_1001_1.jpeg",
+      "presale_1001_2.jpeg",
+      "presale_1001_3.jpeg",
+      "presale_1001_4.jpeg",
+      "presale_1001_5.jpeg",
+      "presale_1001_6.jpeg",
+      "presale_1001_7.jpeg",
+      "presale_1001_8.jpeg",
+      "presale_1001_9.jpeg",
+      "presale_1001_10.jpeg"
+    ],
+    "preSale": true,
+    "soldOut": false
+  },
+  {
+    "code": 1002,
+    "name": "",
+    "category": "预售",
+    "price": 0,
+    "priceNote": "ឆាតសួរតម្លៃបានបងៗ",
+    "images": [
+      "presale_1002_1.jpeg",
+      "presale_1002_2.jpeg",
+      "presale_1002_3.jpeg",
+      "presale_1002_4.jpeg",
+      "presale_1002_5.jpeg"
+    ],
+    "preSale": true,
+    "soldOut": false
+  },
+  {
+    "code": 1003,
+    "name": "",
+    "category": "预售",
+    "price": 0,
+    "priceNote": "ឆាតសួរតម្លៃបានបងៗ",
+    "images": [
+      "presale_1003_1.jpeg",
+      "presale_1003_2.jpeg",
+      "presale_1003_3.jpeg",
+      "presale_1003_4.jpeg",
+      "presale_1003_5.jpeg",
+      "presale_1003_6.jpeg",
+      "presale_1003_7.jpeg"
+    ],
+    "preSale": true,
+    "soldOut": false
+  },
+  {
+    "code": 1004,
+    "name": "",
+    "category": "预售",
+    "price": 0,
+    "priceNote": "ឆាតសួរតម្លៃបានបងៗ",
+    "images": [
+      "presale_1004_1.jpeg",
+      "presale_1004_2.jpeg"
+    ],
+    "preSale": true,
+    "soldOut": false
   }
 ];;;;;;
 
@@ -1865,7 +1933,7 @@ function renderProducts(filter) {
       <div class="card-body">
         <div class="card-code">#${codeStr}</div>
         <div class="card-price-row">
-          <span class="card-price">${isPre ? '<span data-lang="active" data-km>រង់ចាំ</span><span data-lang data-en>TBA</span><span data-lang data-zh>待定</span>' : '$' + p.price.toFixed(2)}</span>
+          <span class="card-price">${isPre ? (p.priceNote ? '<span data-lang="active" data-km>' + p.priceNote + '</span><span data-lang data-en>Chat for price</span><span data-lang data-zh>私聊询价</span>' : '<span data-lang="active" data-km>រង់ចាំ</span><span data-lang data-en>TBA</span><span data-lang data-zh>待定</span>') : '$' + p.price.toFixed(2)}</span>
           ${!isPre ? '<span class="card-price-usd">USD</span>' : ''}
         </div>
         <a href="https://www.facebook.com/profile.php?id=61576378833138"
